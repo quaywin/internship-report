@@ -1,14 +1,16 @@
 %\documentclass[a4paper]{classe_de_document} pour le format a4
 %texclipse pour eclipse
-\documentclass{report}
+\documentclass{article}
 %classes dispos : book, report, article, slides, letter
-\usepackage{T1}{fontenc}
+\usepackage[latin1,utf8]{inputenc}
+\usepackage[french]{babel}
 %permet de gerer directement els accents
-\usepackage{frenchb}{babel}
+%\usepackage[frenchb]{babel}
 %regles de typographie française
 %liste des caractères clé : '\'début de macro, '%' commentaire , '~' espace insécable, '{' début de groupe, '}' fin de groupe, '$' mode mathématique, '_' indice, '^' exposant, '#' paramètre de macro, '&' colonne de tableau
 \setlength{\parindent}{3cm} % indentation des paragraphes
 \setlength{\parskip}{18pt plus4pt minus2pt} % dimension des sauts entre les paragraphes
+
 \begin{document}
 Exemple1 :
 Mes premiers pas avec \LaTeX{} sont un peu émouvants.
@@ -118,22 +120,16 @@ Super\vfill Super \vfill Super%
 
 %LaTEX connaît 7 niveaux de plan. Dans l’ordre d’importance on trouve \part, \chapter, \section, \subsection,\subsubsection, \paragraph et \subparagraph.
 
-\part{partie}
-\chapter{chapitre}
 \section{section}
 \subsection{sous section}
 \paragraph{paragraph}
 \subparagraph{sous paragraphe}
 
-\part{partie}
-\chapter{chapitre}
 \section{section}
 \subsection{sous section}
 \paragraph{paragraph}
 \subparagraph{sous paragraphe}
 
-\part{partie}
-\chapter{chapitre}
 \section{section}
 \subsection{sous section}
 \paragraph{paragraph}
@@ -169,6 +165,12 @@ Super\vfill Super \vfill Super%
 %     Les commandes relatives au plan peuvent être vues à la section 5.1.1 page 24. (Vous pouvez vérifier, je suis certain
 %du résultat puisque ce n’est pas moi qui ai écrit les numéros.)
 
+
+\begin{figure}[htp]
+\centering
+\includegraphics{marcouille simpson.png}
+\caption{Transverse momentum distributions}\label{fig:marcouille simpson.png}
+\end{figure}
 
 % Les annexes sont introduites par la macro \appendix. 
 
