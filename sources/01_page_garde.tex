@@ -1,1 +1,123 @@
+%\documentclass[a4paper]{classe_de_document} pour le format a4
+%texclipse pour eclipse
+\documentclass{report}
+%classes dispos : book, report, article, slides, letter
+\usepackage{T1}{fontenc}
+%permet de gerer directement els accents
+\usepackage{frenchb}{babel}
+%regles de typographie française
+%liste des caractères clé : '\'début de macro, '%' commentaire , '~' espace insécable, '{' début de groupe, '}' fin de groupe, '$' mode mathématique, '_' indice, '^' exposant, '#' paramètre de macro, '&' colonne de tableau
+\setlength{\parindent}{3cm} % indentation des paragraphes
+\setlength{\parskip}{18pt plus4pt minus2pt} % dimension des sauts entre les paragraphes
+\begin{document}
+Exemple1 :
+Mes premiers pas avec \LaTeX{} sont un peu émouvants.
+%espace insécable si on veut séparer la macro du reste :
+Mes premiers pas avec \LaTeX{}~sont un peu émouvants.
+% plein d'espaces sont réduits à un seul
+Second exemple {\LaTeX} pour separer macro du texte.
+Troisième exemple pour separer \LaTeX\ du reste.
+%espace insécable pour avoir la bonne coupure.
+Troisième exemple pour separer~\LaTeX\ du reste.
+% obtention des caractères réservés
+% '\' = \(\backslash\)
+% '$' = \$
+% '%' = \%
+% '_' = \_
+% '~' = \~{}
+% '^' = \^{}
+% '{' = \{
+% '}' = \}
+% '#' = \#
+% '&' = \&
+% accentuer les lettres \^lettre, ex : \^e
+% rappel les capitals doivent être accentuées
+% accent aigu = \'
+% trema = \"
+% grave \`
+% circonflexe = \^
+% Macros de base :
+% \oe \OE \o \O \S \P \copyright
+% groupes pour les fonts : tiny, scriptsize, footnotesize, small, normalsize, large, Large, LARGE, huge, Huge
+{\tiny groupe de taille tiny}
+{\normalsize groupe de taille normale}
+{\large groupe de taille large}
+%types de fonts :
+Macro I  Macro II            Résultat
+           Macros pour la forme
+\textup \upshape foerme droit
+\textit \itshape forme italique
+\textsl \slshape penché
+\textsc \scshape petite capitale
+          Macros pour la graisse
+\textmd \mdseries medium
+\textbf \bfseries gras
+          Macros pour la famille
+\textrm \rmfamily romain
+\textsf \sffamily sans serif
+\texttt \ttfamily typewriter
+
+% Macro de type 2 : {\sffamily {\bfseries Qui}, sur la terre ?}
+% Macro de type 1 : seulement ce qui suit : ex \textbf{that}
+
+% Macro emphasis (pour mettre en relief) : \emph{truc a mettre en relief}
+
+%paragraphes : 
+\begin{flushright} % ou {\raggedleft bla bla bla \par (ou ligne vide)}
+Paragraphe a droit style anglais. Paragraphe a droit style anglais. Paragraphe a droit style anglais. Paragraphe a droit style anglais. Paragraphe a droit style anglais. Paragraphe a droit style anglais. Paragraphe a droit style anglais. Paragraphe a droit style anglais.
+\end{flushright}
+
+\begin{flushleft} % ou {\raggedright bla bla bla \par (ou ligne vide)}
+Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.Paragraphe a gauche style anglais.
+\end{flushleft}
+
+\begin{center}% ou {\centering bla bla bla \par (ou ligne vide)}
+Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.Paragraphe centré.
+\end{center}
+
+% \noindent pour enlever l'indentation en debut de paragraphe
+
+% \vfill, \hfill 
+exemple :
+Super\hfill Super \hfill Super%
+Super\vfill Super \vfill Super%
+
+% exemple de liste : itemize, enumerate, description
+%\begin{type_de_liste}
+%  \item premier élément de la liste
+%  \item deuxième élément de la liste
+%    .
+%    .
+%    .
+%  \item dernier élément de la liste
+%\end{type_de_liste}
+%
+
+\begin{itemize}
+\item item1 ;
+\begin{itemize}
+\item item11 ;
+\item item12 ;
+\item item13.
+\end{itemize}
+\item item2 ;
+\item item3.
+\end{itemize}
+
+\begin{enumerate}
+\item item1.
+\item item2.
+\item item3.
+\end{enumerate}
+
+\begin{description}
+\item[Un] item1
+\item[Deux] item2
+\item[Trois et etc.] item3
+\end{description}
+
+
+
+
+\end{document}
 
