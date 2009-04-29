@@ -9,13 +9,13 @@
 %  \renewcommand{\listtablename}{Nouveau nom}%
 %}
 \title{Rapport
-	\thanks{A special form of footnote}}
+	\footnote{\thanks{A special form of footnote}}}
 \author{Who wrote this stuff?}
 \date{01/06/1986}
 
 \begin{document}
 
-\maketitle{}
+\includegraphics[scale=0.8]{Couv-rapport.pdf}
 
 \pagebreak
 
@@ -55,35 +55,35 @@
 \paragraph{paragraph}
 \subparagraph{sous paragraphe}
 
-\section{Quelques présentations plus évoluées}
+\section{Quelques prï¿½sentations plus ï¿½voluï¿½es}
 \subsection{Structuration des documents}
 \subsubsection{Commandes pour le plan}
 
-\section{Quelques présentations plus évoluées}
+\section{Quelques prï¿½sentations plus ï¿½voluï¿½es}
 \subsection{Structuration des documents}
 \subsubsection{Commandes pour le plan}
 
-\section{Quelques présentations plus évoluées}
+\section{Quelques prï¿½sentations plus ï¿½voluï¿½es}
 \subsection{Structuration des documents}
 \subsubsection{Commandes pour le plan}
 
-%                 En effet, un appel à la macro \tableofcontents suffit à faire tout le travail. Certaines présentations
-%nécessitent deux compilations successives pour être correctes. La construction d?une table des matières fait partie de
-%celles-ci. La première compilation construit un fichier auxiliaire dans lequel sont rangés les renseignements concernant
-%les titres (énoncés et numéros de page) et la seconde compilation lit ce fichier pour construire effectivement la table des
-%matières.
+%                 En effet, un appel ï¿½ la macro \tableofcontents suffit ï¿½ faire tout le travail. Certaines prï¿½sentations
+%nï¿½cessitent deux compilations successives pour ï¿½tre correctes. La construction d?une table des matiï¿½res fait partie de
+%celles-ci. La premiï¿½re compilation construit un fichier auxiliaire dans lequel sont rangï¿½s les renseignements concernant
+%les titres (ï¿½noncï¿½s et numï¿½ros de page) et la seconde compilation lit ce fichier pour construire effectivement la table des
+%matiï¿½res.
 
 
-%      Pour cela, il suffit de placer la macro \label suivi d?un groupe donnant le mot-clé permettant de retrouver cette
-%référence. Ensuite, la macro \ref suivi d?un groupe ayant le même mot-clé donnera le numéro de la structure référencée (titre, tableau, figure, équation) et la macro \pageref donnera son numéro de page. Pour arriver à ceci, L TEX écrit ces informations dans une fichier auxiliaire lors de la compilation et il est nécessaire de compiler le source une seconde fois pour que ces informations puissent être lues.
+%      Pour cela, il suffit de placer la macro \label suivi d?un groupe donnant le mot-clï¿½ permettant de retrouver cette
+%rï¿½fï¿½rence. Ensuite, la macro \ref suivi d?un groupe ayant le mï¿½me mot-clï¿½ donnera le numï¿½ro de la structure rï¿½fï¿½rencï¿½e (titre, tableau, figure, ï¿½quation) et la macro \pageref donnera son numï¿½ro de page. Pour arriver ï¿½ ceci, L TEX ï¿½crit ces informations dans une fichier auxiliaire lors de la compilation et il est nï¿½cessaire de compiler le source une seconde fois pour que ces informations puissent ï¿½tre lues.
 
 
 %     Ainsi, la phrase :
-%    Les commandes relatives au plan peuvent être vues à la
+%    Les commandes relatives au plan peuvent ï¿½tre vues ï¿½ la
 %     section~\ref{commandeplan} page~\pageref{commandeplan}.
-%sera composée comme suit :
-%     Les commandes relatives au plan peuvent être vues à la section 5.1.1 page 24. (Vous pouvez vérifier, je suis certain
-%du résultat puisque ce n?est pas moi qui ai écrit les numéros.)
+%sera composï¿½e comme suit :
+%     Les commandes relatives au plan peuvent ï¿½tre vues ï¿½ la section 5.1.1 page 24. (Vous pouvez vï¿½rifier, je suis certain
+%du rï¿½sultat puisque ce n?est pas moi qui ai ï¿½crit les numï¿½ros.)
 
 
 % Les annexes sont introduites par la macro \appendix. 
