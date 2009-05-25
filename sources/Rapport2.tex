@@ -2,6 +2,7 @@
 \usepackage[latin1,utf8]{inputenc}
 \usepackage[frenchb]{babel}
 \usepackage[pdftex]{graphicx} % to include pictures
+\usepackage{pdfpages}
 \setlength{\parindent}{1cm} % indentation des paragraphes
 \setlength{\parskip}{18pt plus4pt minus2pt} % dimension des sauts entre les paragraphes
 
@@ -13,7 +14,7 @@
 
 \begin{document}
 
-\includepdf[pages=-]{votre_fichier} 
+\includepdf[pages=1,noautoscale=true]{premiere_page.pdf} 
 
 
 \section{Remerciements}
