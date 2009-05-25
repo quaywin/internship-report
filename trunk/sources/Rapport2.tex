@@ -2,42 +2,47 @@
 \usepackage[latin1,utf8]{inputenc}
 \usepackage[frenchb]{babel}
 \usepackage[pdftex]{graphicx} % to include pictures
-\setlength{\parindent}{3cm} % indentation des paragraphes
+\setlength{\parindent}{1cm} % indentation des paragraphes
 \setlength{\parskip}{18pt plus4pt minus2pt} % dimension des sauts entre les paragraphes
-%\addto\captionsfrench{%
-%  \renewcommand{\listfigurename}{Nouveau nom}%
-%  \renewcommand{\listtablename}{Nouveau nom}%
-%}
-\title{Rapport
-	\footnote{\thanks{A special form of footnote}}}
-\author{Who wrote this stuff?}
-\date{01/06/1986}
+
+\title{Rapport}
+\author{Marc BOUVIER}
+\date{2009}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIN DE L'EN TETE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
+\includepdf[pages=-]{votre_fichier} 
+
+
 \section{Remerciements}
+\pagebreak
+\tableofcontents{} % table des matières
+\pagebreak
+\listoffigures{}  % table des figures
+\pagebreak
 
 \section{Présentation de l'entreprise d'accueil}
-Intro historique de Smartesting infos globales
-Smartesting 
+Smartesting, anciennement LEIROS a été créée en 2003 par Laurent PY et Bruno LEGEARD. Elle est issue du projet Smart Testing\texttrademark ~à l'université de Franche Comté. L'objectif premier de smartesting a été d'industrialiser le projet Smart Testing\texttrademark .Les objectifs ont ensuite évolué
+
+
+\subsection{Secteur d'activité}
+Smartesting développe dans le secteur grandissant du test logiciel. Ce marché devrait atteindre 13 milliards de dollars en 2010 (selon une étude de Gartner). Le test logiciel, en particulier le test fonctionnel devient une phase clé du développement logiciel. Des besoins très stricts pour les milieux bancaires par exemple obligent ces entreprises à faire appel à des ingénieurs de test afin de garantir entre autres la non regression et le bon fonctionnement de gros projets.
+
+\subsection{Couverture géographique}
+Smartesting est implantée dans différents points stratégiques. En France le siège social ainsi que le centre R\&D sont \`a Besançon dans les locaux de l'hotel d'entreprises TEMIS Innovation. Ainsi la R\&D reste proche géographiquement de l'université et de la recherche qui y a lieu.
+\`A Paris et \`a Amsterdam aux Pays-Bas se trouvent les agence où travaillent les commerciaux.
+Enfin, Smartesting s'est implantée à Bangalore, en Inde où elle compte réaliser la moitié de son chiffre d'affaires en 2010 gr\`ace au boom de l'offshore.
+\pagebreak 
+\subsection{Organisation}
+
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=0.50]{Illustrations/Organigramme_with_me.png}
 \caption{Organigramme}
 \label{fig:Organigramme de Smartesting}
 \end{figure}
-
-\subsection{Secteur d'activité}
-Smartesting développe sur la thématique du test logiciel.
-
-\subsection{Couverture géographique}
-Smartesting est implantée dans différents points stratégiques. En France le siège social ainsi que le centre R\&D sont \`a Besançon dans les locaux de l'hotel d'entreprises TEMIS Innovation. Ainsi la R\&D reste proche géographiquement de l'université et de la recherche qui y a lieu.
-\`A Paris et \`a Amsterdam aux Pays-Bas se trouvent les agence où travaillent les commerciaux.
-Enfin, Smartesting s'est implantée à Bangalore, en Inde où elle compte réaliser la moitié de son chiffre d'affaires en 2010.
-Pays-Bas : Amsterdam
-Inde : Bangalore
-
-\subsection{Organisation}
 
 \subsection{Service proposé : Le produit Test Designer}
 Smartesting en quelques chiffres
