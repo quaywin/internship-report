@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt,oneside]{book}
 \usepackage[latin1,utf8]{inputenc}
 \usepackage[french]{babel}
 \usepackage[pdftex]{graphicx} % to include pictures
@@ -13,31 +13,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIN DE L'EN TETE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-
 \includepdf[pages=1,noautoscale=true]{premiere_page.pdf} 
-
-
-\section{Remerciements}
+\pagebreak
+Remerciements
 \pagebreak
 \tableofcontents{} % table des matières
 \pagebreak
 \listoffigures{}  % table des figures
 \pagebreak
+\part{Introduction}
 
-\section{Introduction}
+\section{Présentation de l'entreprise d'accueil}
+Créée en 2003 par Laurent Py et Bruno LEGEARD, la société LEIROS est spécialisée dans le test logiciel. Elle est issue du projet Smart Testing\texttrademark ~à l'université de Franche Comté. L'objectif premier de LEIROS a été d'industrialiser le projet Smart Testing\texttrademark.  LEIROS à changé de nom pour devenir SMARTESTING en juin 2008. En septembre 2008, Smartesting ouvre sa filiale à Bangalore, en Inde. SMARTESTING compte environs trente-cinq personnes dont onze dans le service R\&D{}\footnote{recherche et développement}.
 
-\subsection{Présentation de l'entreprise d'accueil}
-J'ai effectué mon stage à SMARTESTING à Besançon.Cette société, anciennement LEIROS a été créée en 2003 par Laurent PY et Bruno LEGEARD est devenue SMARTESTING en juin 2008. Elle est issue du projet Smart Testing\texttrademark ~à l'université de Franche Comté. L'objectif premier de SMARTESTING a été d'industrialiser le projet Smart Testing\texttrademark . Diverses améliorations ont ensuite été apportées au produit, mais j'y reviendrai un peu plus tard.
-
-\subsection{Secteur d'activité}
-Smartesting développe dans le secteur grandissant du test logiciel. Ce marché devrait atteindre 13 milliards de dollars en 2010 (selon une étude de Gartner). Le test logiciel, en particulier le test fonctionnel devient une phase clé du développement logiciel. Des besoins très stricts pour les milieux bancaires par exemple obligent ces entreprises à faire appel à des ingénieurs et des architectes de test afin de concevoir les tests logiciels qui permettront par exemple de garantir la stabilité, la non regression et le bon fonctionnement de gros projets.
-
-\subsection{Couverture géographique}
-Smartesting est implantée dans différents points stratégiques. En France,le siège social ainsi que le centre R\&D sont \`a Besançon dans les locaux de l'h\^otel d'entreprises TEMIS Innovation. Ainsi la R\&D reste proche géographiquement de l'université et de la recherche qui y a lieu.
+\section{Couverture géographique}
+Smartesting est implantée dans différents points stratégiques. En France,le siège social ainsi que le centre R\&D sont à Besançon dans les locaux de l'h\^otel d'entreprises TEMIS Innovation. Ainsi la R\&D reste proche géographiquement de l'université et de la recherche qui y a lieu.
 \`A Paris et \`a Amsterdam aux Pays-Bas se trouvent les agence où travaillent les commerciaux et les avant-vente.
-Enfin, Smartesting s'est implantée à Bangalore, en Inde où elle compte réaliser la moitié de son chiffre d'affaires en 2010 gr\`ace au boom de l'offshore o\`u le marché du test logiciel est en pleine expansion.
+Enfin, Smartesting s'est implantée à Bangalore, en Inde où elle compte réaliser la moitié de son chiffre d'affaires en 2010 gr\^ace au boom de l'offshore o\`u le marché du test logiciel est en pleine expansion.
+
+\section{Secteur d'activité}
+Smartesting développe dans le secteur grandissant du test logiciel. Ce marché devrait atteindre 13 milliards de dollars en 2010 (selon une étude de Gartner). Le test logiciel, en particulier le test fonctionnel devient une phase clé du développement logiciel. Des besoins très stricts pour les milieux bancaires par exemple obligent ces entreprises à faire appel à des ingénieurs et des architectes de test afin de concevoir les tests logiciels qui permettront par exemple de garantir la stabilité, la non regression et le bon fonctionnement de gros projets. SMARTESTING propose Test Designer, une solution de génération automatique de référentiels de test à plusieurs niveaux.
+
 \pagebreak 
-\subsection{Organisation}
+\section{Organisation}
 
 \begin{figure}[!h]
 \centering
@@ -45,9 +43,9 @@ Enfin, Smartesting s'est implantée à Bangalore, en Inde où elle compte réali
 \caption{Organigramme}
 \label{fig:Organigramme de Smartesting}
 \end{figure}
-Je travaille dans le service de recherche et développement de Smartesting. Le produit Test Designer ainsi que les connecteurs et les publishers y sont développés. Je parlerai en détail ultérieurement de ces aspects du produit. L'équipe est composée de 10 développeurs ainsi que d'un
+Je travaille dans le service de R\&D{}\ de SMARTESTING. Ce service est composé d'ingénieurs dévelopeurs qui améliorent sans cesse Test Designer ainsi que les connecteurs et les publishers y sont développés. L'équipe est composée de 10 développeurs ainsi que d'un
 
-\subsection{Service proposé : Le produit Test Designer}
+\section{Service proposé : Le produit Test Designer}
 Smartesting en quelques chiffres
 Dans cette partie voici quelques chiffres et données qui résument toutes les parties évoquées précédemment sur mon entreprise d'accueil.
 \begin{itemize}
@@ -65,9 +63,9 @@ Dans cette partie voici quelques chiffres et données qui résument toutes les p
 \item{Nombre de clients :} 
 \end{itemize}
 
-\section{Test Designer}
-
-\section{Methodes Agiles}
+\chapter{Test Designer}
+La solution Test Designer permet de générer des référentiels de tests fonctionnels à partir de modèles UML pour le test/footnote{Model Based Testing}
+\part{Methodes Agiles}
 TODO : déroulement d'un semaine "agile"
 Méthode Agile : eXtreme Programming  (XP)
 Les méthodes Agiles et l'eXtreme Programming sont un ensemble de bonne pratiques dédiées à la production logicielle. Elles ont comme philosophie accepter le changement plutôt que de le supporter. L'eXtreme Programming (XP) pr\^one les cycles de développement courts (1 à 2 semaines). Un Client XP\footnote{Client sur site interne} permet d'avoir des retours rapides et de s'assurer que les exigences fonctionnelles soient bien comprises et implémentées.
@@ -200,6 +198,9 @@ Dans les applications non critiques, l'écriture des tests unitaires a longtemps
 La méthode XP préconise d'écrire les tests en même temps, ou même avant la fonction à tester (Test Driven Development). Ceci permet de définir précisément l'interface du module à développer. En cas de découverte d'un bogue, on écrit la procédure de test qui reproduit le bogue. Après correction on relance le test, qui ne doit indiquer aucune erreur.
 
 \paragraph{Tests haut niveau}
+
+\paragraph{MBT}
+Parmi les différentes approches du test logiciel, MBT (Model Based Testing) a pour objectif de créer des cas de test à partir de modèles abstraits.
 
 
 \paragraph{Tests fonctionnels}

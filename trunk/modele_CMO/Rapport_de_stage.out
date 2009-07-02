@@ -1,0 +1,50 @@
+\BOOKMARK [0][-]{chapter*.2}{Remerciements}{}
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}
+\BOOKMARK [1][-]{section.1.1}{Pr\351sentation de l'entreprise}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{La solution Smartesting}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{Objectifs}{chapter.1}
+\BOOKMARK [1][-]{section.1.4}{M\351thode de travail}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.4.1}{Morning meeting}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.2}{R\351trospective}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.3}{S\351ance de cotation}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.4}{L'engagement}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.5}{Pair Programming}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.6}{Batman et Robin}{section.1.4}
+\BOOKMARK [2][-]{subsection.1.4.7}{Int\351grateur continu}{section.1.4}
+\BOOKMARK [1][-]{section.1.5}{Synth\350se}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Le modeleur open source}{}
+\BOOKMARK [1][-]{section.2.1}{\311tude du modeleur Papyrus}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.1.1}{Points communs}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.2}{Diff\351rences}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.3}{Structure d'un projet Papyrus}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.4}{Edition du mod\350le UML}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.5}{R\351cup\351ration d'un mod\350le}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.6}{Les st\351r\351otypes}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.7}{R\351sultat}{section.2.1}
+\BOOKMARK [1][-]{section.2.2}{Probl\350mes rencontr\351s}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.1}{Probl\350me sur les instances de lien dans le mod\350le}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.2}{Gestion des ranges sur les entiers}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.3}{Probl\350me d'extraction des commentaires}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.4}{Comment est g\351r\351 le sp\351cifique de chaque modeleur ?}{section.2.2}
+\BOOKMARK [1][-]{section.2.3}{La plateforme Eclipse}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.3.1}{Historique}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.2}{Principe}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.3}{D\351ploiement d'un plugin sur une plateforme Eclipse}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.4}{Structure}{section.2.3}
+\BOOKMARK [1][-]{section.2.4}{Le build}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.4.1}{Objectifs}{section.2.4}
+\BOOKMARK [2][-]{subsection.2.4.2}{Fonctionnement du build }{section.2.4}
+\BOOKMARK [1][-]{section.2.5}{Cr\351ation d'un point d'extension Eclipse}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.5.1}{Principe}{section.2.5}
+\BOOKMARK [2][-]{subsection.2.5.2}{Mise en \234uvre}{section.2.5}
+\BOOKMARK [2][-]{subsection.2.5.3}{Avantages /inconv\351nients}{section.2.5}
+\BOOKMARK [1][-]{section.2.6}{Synth\350se}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{Conclusion}{}
+\BOOKMARK [1][-]{section.3.1}{Professionnelle}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.1.1}{Objectifs}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.2}{\311change de connaissance}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.3}{L'agilit\351}{section.3.1}
+\BOOKMARK [1][-]{section.3.2}{Personnelle}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{Enjeu de carri\350re}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{Le futur}{section.3.2}
+\BOOKMARK [0][-]{chapter*.87}{Bibliographie / Netographie}{}

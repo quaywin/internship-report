@@ -1,0 +1,166 @@
+\documentclass[12pt,oneside]{book}
+\usepackage{makeidx,anysize,mflogo,xspace,texnames,float,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[TS1,OT1,T1]{fontenc}
+\usepackage[francais]{babel} %\usepackage[english]{babel}
+\usepackage{graphicx} % Pour les figures
+\usepackage{colordvi} % Pour la couleur
+\usepackage{listings} % Pour les listes
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{hyperref} % Pour les liens hypertexts
+%\usepackage{algorithm} %\usepackage{algorithmic} % Pour des algorithmes
+%\usepackage{algpseudocode}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption} % Config des légendes (figure, tableau, ..)
+
+\usepackage{fancyhdr} % Pour l'entête et les pieds de pages
+
+%------------------------------------------------------------------------
+% Configuration des entêtes et pieds de pages
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} \fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\addtolength{\headheight}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%------------------------------------------------------------------------
+% Indentation et coloration syntaxique du language XML
+\lstset{language=XML,
+basicstyle=\small,
+keywordstyle=\bf \color{blue},
+identifierstyle=\underline,
+commentstyle=\color[gray]{0.5},
+stringstyle=\color{blue},
+showstringspaces=false}
+
+%------------------------------------------------------------------------
+
+\newcommand{\clearemptydoublepage}{% Nouvelle commande pour laisser une page blanche
+	\newpage{\pagestyle{empty}\cleardoublepage}}
+
+%------------------------------------------------------------------------
+% Commandes pour la page de garde
+\makeatletter
+\def\clap#1{\hbox to 0pt{\hss #1\hss}}%
+
+\def\ligne#1{
+	\hbox to \hsize{\vbox{\centering #1}}}%
+	
+\def\haut#1#2#3{%
+	\hbox to \hsize{%
+	\rlap{\vtop{\raggedright #1}}%
+	\hss
+	\clap{\vtop{\centering #2}}%
+	\hss
+	\llap{\vtop{\raggedleft #3}}}}%
+	
+\def\bas#1#2#3{%
+	\hbox to \hsize{%
+	\rlap{\vbox{\raggedright #1}}%
+	\hss
+	\clap{\vbox{\centering #2}}%
+	\hss
+	\llap{\vbox{\raggedleft #3}}}}%
+	
+\def\maketitle{%
+	\thispagestyle{empty}\vbox to \vsize{%
+		\haut{\@logoUniversity}{}{\@logoLabo}
+		\vspace{.7cm}
+		\haut{}{\@blurb}{}
+		\vfill
+		\vspace{.5cm}
+		\begin{flushleft}
+		\usefont{OT1}{ptm}{m}{n}
+		\huge \@title
+		\end{flushleft}
+		\par
+		\hrule height 4pt
+		\par
+		\begin{flushright}
+		\usefont{OT1}{phv}{m}{n}
+		\Large \@author
+		\par
+		\end{flushright}
+		\vspace{1cm}
+		\haut{}{\@logoCentral}{}
+		\vfill
+		\vfill
+		\bas{}{\@location, le \@date}{}}%
+	\cleardoublepage
+}
+
+\def\date#1{\def\@date{#1}}
+\def\author#1{\def\@author{#1}}
+\def\title#1{\def\@title{#1}}
+\def\location#1{\def\@location{#1}}
+\def\blurb#1{\def\@blurb{#1}}
+\def\logoCentral#1{\def\@logoCentral{#1}}
+\def\logoUniversity#1{\def\@logoUniversity{#1}}
+\def\logoLabo#1{\def\@logoLabo{#1}}
+%------------------------------------------------------------------------
+% Initialisation par défaut
+\date{\today}
+\author{}
+\title{}
+\location{}
+\blurb{}
+\logoCentral{}
+\logoUniversity{}
+\logoLabo{}
+\makeatother
+
+%------------------------------------------------------------------------
+ 
+%\setlength{\textwidth}{160mm} % LARGEUR
+%\setlength{\parindent}{10mm} % Taille des retraits
+
+%------------------------------------------------------------------------
+% Configuration de la page de garde
+\title{Introduction d'un modeleur open source dans la solution Smartesting}
+\author{Cyril \textsc{Moutenet}}
+\date{\today}
+\blurb{UFR Sciences et techniques de Franche-Comté\\ \ \\
+\textbf{Rapport de stage de\\2ème année de Master Informatique\\
+Option Systèmes distribués et réseaux}\\[1em]
+Maître de stage : Olivier Albiez\\
+Tuteur universitaire : Fabien Peureux
+}
+\logoCentral{%
+	\includegraphics[height=3cm]{images/logo-smartesting.png}}
+\logoUniversity{%
+	\includegraphics[height=2.5cm]{images/logo-ufc.jpg}}
+\logoLabo{%
+	\includegraphics[height=2.5cm]{images/logo-lifc.png}}
+\location{Besançon}
+
+%------------------------------------------------------------------------
+
+\begin{document}
+	\begin{frontmatter}
+    	\maketitle
+		%Page blanche
+		\clearemptydoublepage
+		\chapter*{}
+		% Remerciements
+		\include{remerciements}
+		\tableofcontents 
+	\end{frontmatter}
+
+	%Contenu du rapport
+	\input{content}
+	
+	%ANNEXE
+	\appendix % Numérotation de l'annexe en A,B,C,...
+		
+	%\addcontentsline{toc}{chaper}{Annexes}
+	%\chapter*{Annexes} 
+	
+	%Résumé
+	\include{resume}
+\end{document}
