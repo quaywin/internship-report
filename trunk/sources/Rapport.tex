@@ -155,17 +155,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIN DE L'EN TETE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	\includepdf[pages=1,noautoscale=true]{premiere_page.pdf} 
-	\frontmatter
+	\includepdf[pages=1,noautoscale=false]{premiere_page.pdf} 
+	\frontmatter{
 		\clearemptydoublepage
 		\chapter*{}
 		\include{remerciements}
 	\backmatter
 		\tableofcontents{} % table des matières
-		\listoffigures{}  % table des figures
-	\mainmatter
-	\include{content}
-%Annexe
-\appendix
+	}
+	\mainmatter{
+		\include{content}
+	}
+	\backmatter{
+	\listoffigures{}  % table des figures	
+	}
+	%Annexe
+	\appendix
+	\part*{Annexes}
+	\include{lexique}
+	\include{bibliographie}
+	\clearemptydoublepage
+	\includepdf[pages=1,noautoscale=false]{derniere_page.pdf}
 
 \end{document}
