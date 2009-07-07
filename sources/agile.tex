@@ -1,18 +1,9 @@
-\chapter{Methodes Agiles}
-TODO : déroulement d'un semaine "agile"
-Méthode Agile : eXtreme Programming  (XP)
-Les méthodes Agiles et l'eXtreme Programming sont un ensemble de bonne pratiques dédiées à la production logicielle. Elles ont comme philosophie accepter le changement plutôt que de le supporter. L'eXtreme Programming (XP) prône les cycles de développement courts (1 à 2 semaines). Un Client XP\footnote{Client sur site interne} permet d'avoir des retours rapides et de s'assurer que les exigences fonctionnelles soient bien comprises et implémentées.
+\chapter{Methodes Agiles}\label{agile}
+L'équipe dans laquelle je fais mon stage utilisent les méthodes Agiles(cf. lexique \ref{lexique:agile} p.\pageref{lexique:agile}) et eXtreme Programming(cf. lexique \ref{lexique:XP} p.\pageref{lexique:XP}) en particulier. Ces méthodes ne sont pas figées et doivent être adaptées à chaque équipe. Il est donc courant et primordial que certaines pratiques soient remises en cause (cf. tableau \ref{tableau:evolPratXP} p.\pageref{tableau:evolPratXP}. Ce chapitre donne un aperçu des pratiques XP utilisées par l'équipe R\&D de SMARTESTING dans le cadre du développement de la solution Smartesting.
 
-L'eXtreme Programming repose sur cinq valeurs
-\begin{itemize}
-\item{La communication}
-\item{La simplicité}
-\item{Le feedback}
-\item{Le courage}
-\item{Le respect}
-\end{itemize}
 \section{Itération}
-L'équipe organise son travail sous forme d'itération, chaque itération traite un nombre de fonctionnalités limité quantifié sous forme de points de vélocité. Une itération est planifiée lors de la rétrospective de l'itération précédente. Un itération compte un certain nombre de points de vélocité qui est en fait un objectif à atteindre par l'équipe de développement. La durée d'une itération est en général inférieure à 2 semaines. A la fin d'une itération le produit est livré.
+L'équipe organise son travail sous forme d'itérations d'une semaine. Chaque itération traite un nombre de fonctionnalités limité qui est quantifié en points de vélocité(cf. lexique \ref{lexique:velocité} p.\pageref{lexique:velocité}). \`A la fin de mon stage la vélocité variait entre 7 et 13 points par semaine. Une itération est planifiée lors de la rétrospective de l'itération précédente. Un itération compte un certain nombre de points de vélocité qui constitue une estimation de la durée requise pour développer les fonctionalités planifiées. La durée d'une itération à la première semaine de mon stage etait de deux semaines. Elle est tout de suite passée à une semaine. \`A la fin d'une itération le produit est livré. Les versions mineures sont disponibles pour les consultants afin de les tester sur le terrain et d'obtenir des retours en condition réele. Les versions majeures de fin de jalon (Milestone) bénéficient d'une période de validation approfondie et sont disponibles aux utilisateurs finaux.
+
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=0.10]{Illustrations/SP_A0182.jpg}
@@ -21,7 +12,8 @@ L'équipe organise son travail sous forme d'itération, chaque itération traite
 \end{figure}
 
 \section{Rétrospective}
-Lors d'une rétrospective,  les membres de l'équipe de R\& D se réunissent pour parler de la précédente itération et pour planifier celle à venir. La réunion commence par un « check in » pendant lequel une question est posée (par exemple « Comment voyez vous Test Designer dans un an?).Un point sur des statistiques (métriques) telles que le nombre de lignes de code, le nombre de tests unitaires ou encore la vélocité atteinte par rapport aux objectifs est fait. Le point est ensuite porté sur les fonctionnalités qui ont été réalisées ou non lors de l'itération. La réunion se continue par les discussions diverses, chacun peut discuter de diverses choses : apparition de problèmes, amélioration du fonctionnement de l'équipe. La réunion se termine enfin par l'annonce de la prochaine vélocité et l'attribution des responsabilités pour l'itération qui vient. En effet chaque itération a des responsables différents (animateur de la rétrospective, validation, veilleur ...)
+Lors de la rétrospective d'une itération, les membres de l'équipe de R\& D se réunissent pour parler de la précédente itération et pour planifier celle à venir. La réunion commence par un ``check in'' pendant lequel une question est posée (par exemple ``Comment voyez vous Test Designer dans un an?'') en général afin de se remémorer l'itération (se remettre mentalement dedans). Un point est sur des statistiques (métriques) telles que le nombre de lignes de code,la couverture de tests unitaires(cf. lexique \ref{lexique:testU} p.\pageref{lexique:testU}) et haut niveau(cf. lexique \ref{lexique:testHL} p.\pageref{lexique:testHL}) ou encore la vélocité atteinte par rapport aux objectifs. L'attention est ensuite portée sur les fonctionnalités qui ont été réalisées ou non lors de l'itération. La réunion se continue par les discussions diverses, chacun peut discuter de diverses choses : apparition de problèmes, amélioration du fonctionnement de l'équipe. La réunion se termine enfin par l'annonce de la prochaine vélocité et l'attribution des responsabilités pour l'itération qui vient. En effet chaque itération a des responsables différents (animateur de la rétrospective, validation, veilleur ...)
+
 \section{Fiches}\label{agile:fiches}
 Des fiches correspondent aux différentes t\^aches à effectuer dans le cadre d'une itération. Elles peuvent \^etre de type différent : valeur client (couleur blanche), T\^ache technique (couleur verte), Point technique (couleur bleue), Anomalie (couleur rouge), Amélioration de process (couleur jaune). Les couleurs des fiches permettent à l'équipe d'identifier au premier coup d'oeil le travail à réaliser et l'urgence. Si le tableau comporte beaucoup de fiches rouges, elles seront à traiter en priorité car ce sont des bugs. Les fiches possèdent des points qui correspondent à la quantité de travail à effectuer (en demie-journée par bin\^ome) sur la t\^ache. Si la fiche est trop importante elle peut être redécoupées en fiches plus petites.
 
