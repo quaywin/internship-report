@@ -13,6 +13,8 @@
 \newcommand{\tick}{\ding{51}}
 \newcommand{\badtick}{\ding{55}}
 
+\usepackage[toc,page]{appendix} 
+
 \usepackage{makeidx,anysize,mflogo,xspace,texnames,float,epsfig}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -160,25 +162,26 @@
 
 \begin{document}
 	\includepdf[pages=1,noautoscale=false]{premiere_page.pdf} 
-	\frontmatter{
+	\begin{frontmatter}
 		\clearemptydoublepage
 		\chapter*{}
 		\include{remerciements}
-	\backmatter
 		\tableofcontents{} % table des matières
-	}
-	\mainmatter{
+	\end{frontmatter}
+	\begin{mainmatter}
 		\include{content}
-	}
-	\backmatter{
-	\listoffigures{}  % table des figures	
-	}
+	\end{mainmatter}
+
 	%Annexe
-	\appendix
+
 	\part*{Annexes}
+	\begin{appendix}
 	\include{lexique}
 	\include{bibliographie}
+	\end{appendix}
 	\clearemptydoublepage
+	\begin{backmatter}
+	\listoffigures{}  % table des figures	
 	\includepdf[pages=1,noautoscale=false]{derniere_page.pdf}
-
+	\end{backmatter}
 \end{document}

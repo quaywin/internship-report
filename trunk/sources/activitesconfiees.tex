@@ -1,9 +1,36 @@
 \chapter{Activités confiées pendant le stage}
 Pendant mon stage j'ai participé à beaucoup de fiches différentes, il serait long et ennuyeux de les détailler toutes sachant que je participai à entre 1 et 4 fiches par semaine. Je présenterai dans les grandes lignes les fonctionnalités majeure auxquelles j'ai participé.
 
-\subsection{Développement sur le code de production}
-Parmi les activité qui m'ont été confiées, j'ai participé à la réalisation de fiches blanches (cf. \ref{agile:fiches}). Le code produit est appelé ``code de production'' car il couvre les besoins fonctionnels exprimés par le client XP. La première étape dans le travail sur une fiche est de préciser le périmètre fonctionnel avec le client XP. Ceci permet aux développeurs de connaitre son besoin précis. Ensuite on crée les tests unitaires qui permettront de savoir si la fonctionalité est opérationnelle. Les membres du binôme peuvent prendre le clavier au moment où ils le souhaitent et 
-Au début de mon stage, la première fiche à laquelle j'ai participé traitait d'un bug d'IHM\footnote{Interface homme-machine}.TODO : Correction bug affichage no changes, travail sur Setup/teardown, 
+\section{Découverte exploratoir de l'existant}
+TODO
+
+\section{Développements sur le code de production}
+Parmi les activité qui m'ont été confiées, j'ai participé à la réalisation de fiches blanches (cf. \ref{agile:fiches} \pageref{agile:fiches}). Le code produit est appelé ``code de production'' car il couvre les besoins fonctionnels exprimés par le client XP. La première étape dans le travail sur une fiche est de préciser le périmètre fonctionnel avec le client XP. Ceci permet aux développeurs de connaitre son besoin précis. Ensuite, dans la mesure du possible, on crée les tests unitaires qui permettront de savoir si la fonctionalité est opérationnelle. Les membres du binôme peuvent prendre le clavier au moment où ils le souhaitent et proposer leurs idées. Chaque direction prise et ainsi refléchie et validée par chaque memebre du binôme.
+
+\subsection{Observations}
+
+\subparagraph*{}
+Au début de mon stage, la première fonctionalité sur laquelle j'ai travaillé fut des observations. Dans le produit, le observations sont des stéréotypes attachés à des opérations du modèle de test. Les observation sont déclenchées par des triggers\footnote{Evènement déclencheur} selon une précondition décrite dans le langage OCL(cf. lexique \ref{lexique:OCL} p.\pageref{lexique:OCL}). Dans les modeleurs, à l'export, ce stéréotype est reconnu et intégré au modèle propre à Test Designer. Les observations font office de ``points de contrôle '' permettant de vérifier que le système sous test réagit correctement.
+
+\subparagraph*{}
+Les observations sont introduites dans les deux modeleurs principaux de façon différente. Dans RSM, les stéréotypes et la gestion des triggers spécifiques à SMARTESTING proviennent d'un profil personnalisé. L'utilisation des profils dans le modeleur Together ont été l'occasion d'une autre fiche à laquelle j'ai contribué. Cependant mon binôme et moi-même nous somme rendu compte, après avoir passé 4 points de vélocité sur cette fiche cotée à 2, que c'était plus compliqué que nous l'imaginions. Nous avons alors suspendu la fiche en attente de conseils d'OBEO\footnote{OBEO est une société de conseil experte dans le domaine de la modélisation EMF/GMF sous Eclipse}. Finalement la après leur réponse, nous avons dù Rollback(cf. lexique \ref{lexique:rollback} p.\pageref{lexique:rollback}) notre travail. La solution adaptée finalement fut d'utiliser des propriétés ``Custom''(cf. figure \ref{figure:Obs_Trigger_TG} p.\pageref{figure:Obs_Trigger_TG}) pour gérer les triggers dans Together.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{Illustrations/Observation_Trigger_Together.png}
+\caption{Intégration des observations dans Together}
+\label{figure:Obs_Trigger_TG}
+\end{figure}
+
+
+
+
+
+
+
+
+
+fiche à laquelle j'ai participé traitait d'un bug d'IHM\footnote{Interface homme-machine}.TODO : Correction bug affichage no changes, travail sur Setup/teardown, 
 \subsection{Documentation}
 
 \subsection{Validation}
