@@ -32,7 +32,7 @@ Les observations sont introduites dans les deux modeleurs principaux de façon d
 \subsection{Descriptions}
 
 \subparagraph*{}
-Dans test Designer, plusieurs élements ont besoin d'être décrits afin d'être exploitable à la publication par exemple dans la publication HTML, HP Mercury Quality Center ou encore dans Rational Quality Manager. A l'origine les descriptions qui étaient dejà implémentées etaient puibliées en texte brut. Après un court spike (cf. lexique \ref{lexique:spike} p.\pageref{figure:spike}) nous nous sommes aperçu que plusieurs publishers supportaient des balises HTML. Il était egalement possible de mettre du texte en forme en amont dans les modeleurs.
+Dans test Designer, plusieurs élements ont besoin d'être décrits afin d'être exploitable à la publication par exemple dans la publication HTML, HP Mercury Quality Center ou encore dans Rational Quality Manager. A l'origine les descriptions qui étaient dejà implémentées etaient puibliées en texte brut. Après un court spike (cf. lexique \ref{lexique:spike} p.\pageref{lexique:spike}) nous nous sommes aperçu que plusieurs publishers supportaient des balises HTML. Il était egalement possible de mettre du texte en forme en amont dans les modeleurs (cf. tableau \ref{tableau:compatDescHTML} p. \pageref{tableau:compatDescHTML}). Néanmoins certaines version de modeleurs n'ont pas les mêmes standards de mise en forme des descriptions. Ainsi il a fallu passer par une étape intermédiaire pour unifier les descriptions dans un format spécifique interne. Il est par exemple necessaire d'enlever certaines balises en trop ou encore de convertir des balises en d'autres plus globalement supportées. Nous avons choisi d'utiliser le format XHTML avec l'aide de la bibliothèque JTidy (cf \ref{figure:descXHTMLPublisher} p. \pageref{figure:descXHTMLPublisher}). Les descriptions obtenues sont ensuite ``rendues'' pour être affichées ainsi qu'on le souhaite dans les différents publishers.
 
 \begin{table}[h]
 \caption{\label{tableau:compatDescHTML}Compatibilité HTML des modeleurs et publishers}
@@ -40,15 +40,15 @@ Dans test Designer, plusieurs élements ont besoin d'être décrits afin d'être
   \hline
   Type & Nom & Balises supportées (simplifié) \\
   \hline
-  \multirow{4}{*}{Modeleurs} & Together 2007 & <b><i><u> \\
+  \hline
+  \multirow{4}{*}{Modeleurs} & Together 2007 & HTML <b><i><u> \\
     & RSM 7.0.0.x & texte brut\\
     & RSM 7.0.5.x & HTML <b><i><u> + centrer + paragraphes\\ 
-    & RSM 7.5 &  HTML <b><i><u>+ centrer + paragraphes + autres\\ \hline
+   & RSM 7.5 &  HTML <b><i><u>+ centrer + paragraphes + autres\\ \hline
   \multirow{3}{*}{Publishers} & HTML &  \\
     & Quality Center & texte brut et HTML <b><i><u> \\
     & Specification (pdf) & <strong><em><ins>  \\
     & Prototype RQM &  HTML <b><i><u> \\ \hline
- \hline
 \end{tabular}
 \end{table}
 
