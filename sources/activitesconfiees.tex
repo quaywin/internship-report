@@ -15,14 +15,14 @@ Au début de mon stage, la première fonctionalité sur laquelle j'ai travaillé
 \subparagraph*{}
 Les observations sont introduites dans les deux modeleurs principaux de façon différente. Dans RSM, les stéréotypes et la gestion des triggers spécifiques à SMARTESTING proviennent d'un profil personnalisé. L'utilisation des profils dans le modeleur Together ont été l'occasion d'une autre fiche à laquelle j'ai contribué. Cependant mon binôme et moi-même nous somme rendu compte, après avoir passé 4 points de vélocité sur cette fiche cotée à 2, que c'était plus compliqué que nous l'imaginions. Nous avons alors suspendu la fiche en attente de conseils d'OBEO\footnote{OBEO est une société de conseil experte dans le domaine de la modélisation EMF/GMF sous Eclipse}. Finalement la après leur réponse, nous avons dù Rollback(cf. lexique \ref{lexique:rollback} p.\pageref{lexique:rollback}) notre travail. La solution adaptée finalement fut d'utiliser le code péexistant. C'est à dire utiliser des propriétés ``Custom''(cf. figure \ref{figure:obsTriggerTG} p.\pageref{figure:obsTriggerTG}) pour gérer les triggers dans Together. Ces triggers servent à déterminer les opérations que l'on souhaite observer. Une fois définies dans le modèle UML et après export, les observations sont visibles dans Test Designer (cf. figure\ref{figure:obsTD} p.\pageref{figure:obsTD}).
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{Illustrations/Observation_Trigger_Together.png}
 \caption{Intégration des observations dans Together}
 \label{figure:obsTriggerTG}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{Illustrations/Observation.png}
 \caption{Intégration des observations dans Test Designer}
@@ -34,7 +34,7 @@ Les observations sont introduites dans les deux modeleurs principaux de façon d
 \subparagraph*{}
 Dans test Designer, plusieurs élements ont besoin d'être décrits afin d'être exploitable à la publication par exemple dans la publication HTML, HP Mercury Quality Center ou encore dans Rational Quality Manager. A l'origine les descriptions qui étaient dejà implémentées etaient puibliées en texte brut. Après un court spike (cf. lexique \ref{lexique:spike} p.\pageref{lexique:spike}) nous nous sommes aperçu que plusieurs publishers supportaient des balises HTML. Il était egalement possible de mettre du texte en forme en amont dans les modeleurs (cf. tableau \ref{tableau:compatDescHTML} p. \pageref{tableau:compatDescHTML}). Néanmoins certaines version de modeleurs n'ont pas les mêmes standards de mise en forme des descriptions. Ainsi il a fallu passer par une étape intermédiaire pour unifier les descriptions dans un format spécifique interne. Il est par exemple necessaire d'enlever certaines balises en trop ou encore de convertir des balises en d'autres plus globalement supportées. Nous avons choisi d'utiliser le format XHTML avec l'aide de la bibliothèque JTidy (cf \ref{figure:descXHTMLPublisher} p. \pageref{figure:descXHTMLPublisher}). Les descriptions obtenues sont ensuite ``rendues'' pour être affichées ainsi qu'on le souhaite dans les différents publishers.
 
-\begin{table}[h]
+\begin{table}[!ht]
 \caption{\label{tableau:compatDescHTML}Compatibilité HTML des modeleurs et publishers}
 \begin{tabular}{|l|l|l|}
   \hline
@@ -53,7 +53,7 @@ Dans test Designer, plusieurs élements ont besoin d'être décrits afin d'être
 \end{table}
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{Illustrations/bigDescSchema.png}
 \caption{Passage des descriptions des modeleurs à leur publication}
