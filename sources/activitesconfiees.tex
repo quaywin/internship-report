@@ -5,12 +5,12 @@ Pendant mon stage j'ai participé à beaucoup de fiches différentes, il serait 
 TODO
 
 \section{Développements sur le code de production}
-Parmi les activité qui m'ont été confiées, j'ai participé à la réalisation de fiches blanches (cf. \ref{agile:fiches} \pageref{agile:fiches}). Le code produit est appelé ``code de production'' car il couvre les besoins fonctionnels exprimés par le client XP. La première étape dans le travail sur une fiche est de préciser le périmètre fonctionnel avec le client XP. Ceci permet aux développeurs de connaitre son besoin précis. Ensuite, dans la mesure du possible, on crée les tests unitaires qui permettront de savoir si la fonctionalité est opérationnelle. Les membres du binôme peuvent prendre le clavier au moment où ils le souhaitent et proposer leurs idées. Chaque direction prise et ainsi refléchie et validée par chaque memebre du binôme.
+Parmi les activité qui m'ont été confiées, j'ai participé à la réalisation de fiches blanches (cf. \ref{agile:fiches} \pageref{agile:fiches}). Ce code est appelé ``code de production'' car il couvre les besoins fonctionnels exprimés par le client XP. La première étape dans le travail sur une fiche est de préciser le périmètre fonctionnel avec le client XP. Ceci permet aux développeurs de connaitre son besoin précis. Ensuite, dans la mesure du possible, on crée les tests unitaires qui permettront de savoir si la fonctionalité est opérationnelle. Les membres du binôme peuvent prendre le clavier au moment où ils le souhaitent et proposer leurs idées. Chaque direction prise et ainsi refléchie et validée par chaque memebre du binôme.
 
 \subsection{Observations}
 
 \subparagraph*{}
-Au début de mon stage, la première fonctionalité sur laquelle j'ai travaillé fut des observations. Dans le produit, le observations sont des stéréotypes attachés à des opérations du modèle de test. Les observation sont déclenchées par des triggers\footnote{Evènement déclencheur} selon une précondition décrite dans le langage OCL(cf. lexique \ref{lexique:OCL} p.\pageref{lexique:OCL}). Dans les modeleurs, à l'export, ce stéréotype est reconnu et intégré au modèle propre à Test Designer. Les observations font office de ``points de contrôle '' permettant de vérifier que le système sous test réagit correctement.
+Au début de mon stage, la première fonctionalité sur laquelle j'ai travaillé fut des observations. Dans le produit, le observations sont des stéréotypes\footnote{stéréotypes au sens UML} attachés à des opérations de classes du modèle de test. Les observations sont déclenchées par des triggers\footnote{Evènement déclencheur} selon une précondition décrite dans le langage OCL(cf. lexique \ref{lexique:OCL} p.\pageref{lexique:OCL}). Dans les modeleurs, à l'export, ce stéréotype est reconnu et intégré au modèle propre à Test Designer. Les observations font office de ``points de contrôle '' permettant de vérifier que le système sous test réagit correctement.
 
 \subparagraph*{}
 Les observations sont introduites dans les deux modeleurs principaux de façon différente. Dans RSM, les stéréotypes et la gestion des triggers spécifiques à SMARTESTING proviennent d'un profil personnalisé. L'utilisation des profils dans le modeleur Together ont été l'occasion d'une autre fiche à laquelle j'ai contribué. Cependant mon binôme et moi-même nous somme rendu compte, après avoir passé 4 points de vélocité sur cette fiche cotée à 2, que c'était plus compliqué que nous l'imaginions. Nous avons alors suspendu la fiche en attente de conseils d'OBEO\footnote{OBEO est une société de conseil experte dans le domaine de la modélisation EMF/GMF sous Eclipse}. Finalement la après leur réponse, nous avons dù Rollback(cf. lexique \ref{lexique:rollback} p.\pageref{lexique:rollback}) notre travail. La solution adaptée finalement fut d'utiliser le code péexistant. C'est à dire utiliser des propriétés ``Custom''(cf. figure \ref{figure:obsTriggerTG} p.\pageref{figure:obsTriggerTG}) pour gérer les triggers dans Together. Ces triggers servent à déterminer les opérations que l'on souhaite observer. Une fois définies dans le modèle UML et après export, les observations sont visibles dans Test Designer (cf. figure\ref{figure:obsTD} p.\pageref{figure:obsTD}).
@@ -29,9 +29,36 @@ Les observations sont introduites dans les deux modeleurs principaux de façon d
 \label{figure:obsTD}
 \end{figure}
 
+\subsection{Descriptions}
+
+\subparagraph*{}
+Dans test Designer, plusieurs élements ont besoin d'être décrits afin d'être exploitable à la publication par exemple dans la publication HTML, HP Mercury Quality Center ou encore dans Rational Quality Manager. A l'origine les descriptions qui étaient dejà implémentées etaient puibliées en texte brut. Après un court spike (cf. lexique \ref{lexique:spike} p.\pageref{figure:spike}) nous nous sommes aperçu que plusieurs publishers supportaient des balises HTML. Il était egalement possible de mettre du texte en forme en amont dans les modeleurs.
+
+\begin{table}[h]
+\caption{\label{tableau:compatDescHTML}Compatibilité HTML des modeleurs et publishers}
+\begin{tabular}{|l|l|l|}
+  \hline
+  Type & Nom & Balises supportées (simplifié) \\
+  \hline
+  \multirow{4}{*}{Modeleurs} & Together 2007 & <b><i><u> \\
+    & RSM 7.0.0.x & texte brut\\
+    & RSM 7.0.5.x & HTML <b><i><u> + centrer + paragraphes\\ 
+    & RSM 7.5 &  HTML <b><i><u>+ centrer + paragraphes + autres\\ \hline
+  \multirow{3}{*}{Publishers} & HTML &  \\
+    & Quality Center & texte brut et HTML <b><i><u> \\
+    & Specification (pdf) & <strong><em><ins>  \\
+    & Prototype RQM &  HTML <b><i><u> \\ \hline
+ \hline
+\end{tabular}
+\end{table}
 
 
-
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.5]{Illustrations/bigDescSchema.png}
+\caption{Passage des descriptions des modeleurs à leur publication}
+\label{figure:descXHTMLPublisher}
+\end{figure}
 
 
 
