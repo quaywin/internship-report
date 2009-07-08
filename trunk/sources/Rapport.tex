@@ -34,6 +34,9 @@
 
 \usepackage{fancyhdr} % Pour l'entête et les pieds de pages
 
+\usepackage{setspace}%pour les interligne
+
+
 %------------------------------------------------------------------------
 % Configuration des entêtes et pieds de pages
 \pagestyle{fancy}
@@ -170,14 +173,18 @@
 		\tableofcontents{} % table des matières
 	\end{frontmatter}
 	\begin{mainmatter}
+%	\begin{spacing}{1.5} pour les interlignes
 		\include{content}
+%	\end{spacing}
 	\end{mainmatter}
 
 	%Annexe
 
 	\part*{Annexes}
 	\begin{appendix}
+%	\begin{spacing}{1.5}
 	\include{lexique}
+%	\end{spacing}
 	\include{bibliographie}
 	\end{appendix}
 	\clearemptydoublepage
