@@ -7,7 +7,7 @@ L'équipe dans laquelle je fais mon stage utilise des méthodes Agiles(cf. lexiq
 %TODO : mise en place, utilisation, utilité ...
 
 \section{Contrôle de version}
-Le projet ainsi que différentes ressources de SMARTESTING sont versionnées sur un serveur Subversion (SVN). L'environnement de développement IntelliJ IDEA est compatible avec SVN et permet une utilisation efficace et agréable de cet outil. Le contrôle de version est primordial dans le processus de développement pour plusieurs raisons. Il sert de ``garde-fou''; lorsqu'un développement n'aboutit pas il est facile de Rollback(cf. lexique \ref{lexique:rollback} p.\pageref{lexique:rollback}). Il permet également grâce à la gestion des conflits des gérer des modifications effectuées sur les mêmes fichiers par des binômes différents (cf. figure \ref{figure:ideaMerge} p.\pageref{figure:ideaMerge}). 
+Le projet ainsi que différentes ressources de SMARTESTING sont versionnées sur un serveur Subversion (SVN). L'environnement de développement IntelliJ IDEA est compatible avec SVN et permet une utilisation efficace et agréable de cet outil. Le contrôle de version est primordial dans le processus de développement pour plusieurs raisons. Il sert de ``garde-fou''; lorsqu'un développement n'aboutit pas il est facile de Rollback(cf. lexique \ref{lexique:rollback} p.\pageref{lexique:rollback}). Il permet également grâce à la gestion des conflits des gérer des modifications effectuées sur les mêmes fichiers par des binômes différents (cf. figure \ref{figure:ideaMerge} p.\pageref{figure:ideaMerge}). TRAC permet également de faire un suivi rapide du code source qui a été ``commit'' (cf. figure \ref{figure:trac} p.\pageref{figure:trac}).
 
 \begin{figure}[!ht]
 \centering
@@ -16,21 +16,6 @@ Le projet ainsi que différentes ressources de SMARTESTING sont versionnées sur
 \label{figure:ideaMerge}
 \end{figure}
 
-
-
-\section{Intégration continue}
-L'équipe utilise l'intégration continue pour construire et tester en permanence le projet. Cela permet d'avoir un retour très rapide sur la qualité des dernière fonctionalités qui ont été intégrées. Des tâches automatisées très différentes tournent en continu sur différents. 
-TODO : liste des tâches (figure)
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=\textwidth]{Illustrations/hudson.png}
-\caption{Visualisation et gestion de l'intégration continue}
-\label{figure:hudson}
-\end{figure}
-
-L'outil TRAC permet de connaitre rapidement l'état du code source et d'avoir une vue instantanée des modifications récentes (cf. figure \ref{figure:trac} p.\pageref{figure:trac}).
-
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\textwidth]{Illustrations/trac.png}
@@ -38,7 +23,15 @@ L'outil TRAC permet de connaitre rapidement l'état du code source et d'avoir un
 \label{figure:trac}
 \end{figure}
 
+\section{Intégration continue}
+L'équipe utilise l'intégration continue pour construire et tester en permanence le projet. Cela permet d'avoir un retour très rapide sur la qualité des dernière fonctionalités qui ont été intégrées. Des tâches automatisées très différentes tournent en continu sur différents. Le serveur d'intégration continue tourne sous la platerforme Hudson (cf. figure \ref{figure:hudson} p.\pageref{figure:hudson}). Ce serveur pilote différent agents d'intégration continue en leur envoyant des tâches à effectuer. Ces tâches peuvent être le build complet du projet, installation automatique des plugins sur les modeleurs, tests unitaires, tests de validation, tests FIT... Un panneau lumineux visible de toute l'équipe permet de réagir très vite en cas d'échec du build ou des tests. Les développeurs (en général Batman) agissent au plus vite pour réparer les erreurs mises en évidence.
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{Illustrations/hudson.png}
+\caption{Visualisation et gestion de l'intégration continue}
+\label{figure:hudson}
+\end{figure}
 
 \section{Itération}
 L'équipe organise son travail sous forme d'itérations d'une semaine. Chaque itération traite un nombre de fonctionnalités limité qui est quantifié en points de vélocité(cf. lexique \ref{lexique:velocité} p.\pageref{lexique:velocité}). À la fin de mon stage la vélocité variait entre 7 et 13 points par semaine. Une itération est planifiée lors de la rétrospective de l'itération précédente. Un itération compte un certain nombre de points de vélocité qui constitue une estimation de la durée requise pour développer les fonctionalités planifiées. La durée d'une itération à la première semaine de mon stage etait de deux semaines. Elle est tout de suite passée à une semaine. À la fin d'une itération le produit est livré. Les versions mineures sont disponibles pour les consultants afin de les tester sur le terrain et d'obtenir des retours en condition réele. Les versions majeures de fin de jalon (Milestone) bénéficient d'une période de validation approfondie et sont disponibles aux utilisateurs finaux.
@@ -51,7 +44,7 @@ L'équipe organise son travail sous forme d'itérations d'une semaine. Chaque it
 \end{figure}
 
 \section{Rétrospective}
-Lors de la rétrospective d'une itération, les membres de l'équipe de R\& D se réunissent pour parler de la précédente itération et pour planifier celle à venir. La réunion commence par un ``check in'' pendant lequel une question est posée (par exemple ``Comment voyez vous Test Designer dans un an?'') en général afin de se remémorer l'itération (se remettre mentalement dedans). Un point est sur des statistiques (métriques) telles que le nombre de lignes de code,la couverture de tests unitaires(cf. lexique \ref{lexique:testU} p.\pageref{lexique:testU}) et haut niveau(cf. lexique \ref{lexique:testHL} p.\pageref{lexique:testHL}) ou encore la vélocité atteinte par rapport aux objectifs. L'attention est ensuite portée sur les fonctionnalités qui ont été réalisées ou non lors de l'itération. La réunion se continue par les discussions diverses, chacun peut discuter de diverses choses : apparition de problèmes, amélioration du fonctionnement de l'équipe. La réunion se termine enfin par l'annonce de la prochaine vélocité et l'attribution des responsabilités pour l'itération qui vient. En effet chaque itération a des responsables différents (animateur de la rétrospective, validation, veilleur ...)
+Lors de la rétrospective d'une itération, les membres de l'équipe de R\& D se réunissent pour parler de la précédente itération et pour planifier celle à venir. La réunion commence par un ``check in'' pendant lequel une question est posée (par exemple ``Comment voyez vous Test Designer dans un an?'') en général afin de se remémorer l'itération (se remettre mentalement dedans). Un point est sur des statistiques (métriques) telles que le nombre de lignes de code,la couverture de tests unitaires(cf. lexique \ref{lexique:testU} p.\pageref{lexique:testU}) et haut niveau(cf. lexique \ref{lexique:testHL} p.\pageref{lexique:testHL}) ou encore la vélocité atteinte par rapport aux objectifs. L'attention est ensuite portée sur les fonctionnalités qui ont été réalisées ou non lors de l'itération. La réunion se continue par les discussions diverses, chacun peut discuter de diverses choses : apparition de problèmes, amélioration du fonctionnement de l'équipe. La réunion se termine enfin par l'annonce de la prochaine vélocité et l'attribution des responsabilités pour l'itération qui vient. En effet chaque itération a des responsables différents (animateur de la rétrospective, validation, veilleur ...).
 
 \section{Fiches}\label{agile:fiches}
 Des fiches correspondent aux différentes tâches à effectuer dans le cadre d'une itération. Elles peuvent être de type différent : valeur client (couleur blanche), Tâche technique (couleur verte), Point technique (couleur bleue), Anomalie (couleur rouge), Amélioration de process / Prototype (couleur jaune). Les couleurs des fiches permettent à l'équipe d'identifier au premier coup d'oeil le travail à réaliser et l'urgence. Si le tableau comporte beaucoup de fiches rouges, elles seront à traiter en priorité car ce sont des anomalies. Les fiches possèdent des points de vélocité qui correspondent à la quantité de travail à effectuer (en demie-journée par binôme) sur la tâche. Si la fiche est trop importante elle peut être redécoupées en fiches plus petites.
@@ -86,7 +79,7 @@ La validation joue un rôle important lors de l'itération. Une partie de la val
 \section{Semaine type}
 La semaine Agile à la R\&d de SMARTESTING est rythmée par quelques pratiques qui peuvent évoluer.
 \subsection*{Cotation et engagement}
-Avant de commencer une itération, l'egagement est fait. C'est à dire que les fiches qui vont déterminer les développements de la semaine vont être choisies par le client XP. Les fiches sont posées sur le tableau en vue de tous. La somme des vélocités des fiches correspond à la vélocité déterminée lors de la retrospective de l'itération précédente. L'équipe peut alors choisir les fiches qui seront commencées dans la semaine, les binômes se créent. Chaque binôme va ensuite voir le client XP afin de confirmer le périmètre fonctionnel de la fiche. 
+Avant de commencer une itération, l'engagement est fait. C'est à dire que les fiches qui vont déterminer les développements de la semaine vont être choisies par le client XP. Les fiches sont posées sur le tableau en vue de tous. La somme des vélocités des fiches correspond à la vélocité déterminée lors de la retrospective de l'itération précédente. L'équipe peut alors choisir les fiches qui seront commencées dans la semaine, les binômes se créent. Chaque binôme va ensuite voir le client XP afin de confirmer le périmètre fonctionnel de la fiche. Le client XP peut aussi demander la cotation sur des fiches cotée ``gros grain'' du planning game. L'équipe est réunie et une discussion technique a lieu. Après la discussion l'équipe vote la vélocité estimée de la fiche. 
 
 \subsection{Morning meeting}
 Les membres de l'équipe se réunissent juste avant la pause déjeuner pour parler de ce qu'ils ont fait la matinée. Toute l'équipe est réunie en cercle et se fait passer un objet. Celui qui a l'objet prend la parole. Chaque binôme informe toute l'équipe de l'avancée de son engagement ainsi que des problèmes qu'il rencontre. Le temps de parole est très bref et si un problème mérite une attention particulière il sera traité hors du cercle plus tard. Après le tour du cercle s'il y a des informations complémentaires à mentionner elles le sont. Le meeting se termine ensuite par une pensée du jour.
@@ -95,8 +88,11 @@ Les membres de l'équipe se réunissent juste avant la pause déjeuner pour parl
 Le mardi, juste avant la pause déjeuner, un membre de l'équipe fait une présentation à l'aide d'un projecteur sur un sujet de son choix (pas nécessairement lié à l'informatique d'ailleurs). La présentation doit durer 10 minutes. À la fin, les membres de l'équipe peuvent poser des questions et commenter la manière dont la présentation a été réalisée (Intéresser le public, parler clairement, qualité du support...). Cet exercice de communication permet aux membres de l'équipe d'apprendre à partager et à structurer leurs idées. Cela peut être très utile lors de manifestations diverses (xp days, agile tour...). Le point perso a évolué entre le début et la fin de mon stage, et actuellement différentes nouvelles formes en sont expérimentées.
 
 \subsubsection{Discussion sur un livre}
-L'équipe lit un livre pendant la semaine et se réunit le mercredi avant la pause de midi pour commenter un chapitre. L'équipe lorsque je suis arrivé lisait ``The Art of Agile Development''. Cette activité permet deja de lire en anglais , mais également d'améliorer la cohésion de l'équipe par l'éventuelle adoption de pratiques nouvelles. Plusieurs des pratiques évoquées dans ce livre ont été adoptées après mon arrivée. Ce fut le cas de ``No bugs'', ``Done-done'', ``Slack time'' par exemple. Cette pratique a disparu avec le temps car plusieurs personnes de l'équipe n'y trouvaient plus d'intérêt.
+L'équipe lit un chpitre d'un livre pendant la semaine et se réunit le mercredi avant la pause de midi pour le commenter. Lorsque je suis arrivé elle lisait ``The Art of Agile Development''. Cette activité permet deja de lire en anglais , mais également d'améliorer la cohésion de l'équipe par l'éventuelle adoption de pratiques nouvelles. Plusieurs des pratiques évoquées dans ce livre ont été adoptées après mon arrivée. Ce fut le cas de ``No bugs'', ``Done-done'', ``Slack time'' par exemple. Cette pratique a disparu avec le temps car plusieurs personnes de l'équipe n'y trouvaient plus d'intérêt. Différentes pratiques sont en cours d'expériementation pour remplacer la lecture.
 
 \subsection{Point technique}
-Le Jeudi matin en début de matinée a lieu le point technique il peut varier dans son contenu. Cela peut aller de la discussion d'un point technique rencontré lors de l'itération à un code contest de 30 minutes.
+Le Jeudi matin en début de matinée a lieu le point technique il peut varier dans son contenu. Cela peut aller de la discussion d'un point technique rencontré lors de l'itération à un code contest(cf. lexique \ref{lexique:codeContest} p.\pageref{lexique:codeContest}) de 30 minutes. L'équipe profite de ce point pour apprendre de nouvelles techniques, faire de la ``veille technologique'', faire le point sur des évènements tels que les XP Days\footnote{conférence sur les méthodes agiles \url{http://www.xpday.fr/}}. Les points techniques, au cours de mon stage n'ont plus eu de date précise mais étaient organisés selon les besoins de l'équipe.
+
+\subsection{Pomorodo}
+Un mois avant la fin de mon stage l'équipé a commencé à expérimenter une technique de gestion du temps qui avait été présentée lors du meeting corporate le 10 avril. Cette technique consiste à découper 
 
