@@ -73,26 +73,65 @@ Une grand partie du travail dans l'équipe est réalisée en binôme. Les binôm
 \label{fig:Pair programming}
 \end{figure}
 
-\section{Validation}
-La validation joue un rôle important lors de l'itération. Une partie de la validation est réalisée en permanence par les serveurs d'intégration continue. Une autre partie (en général, l'utilisation via l'interface homme-machine) ne peut être réalisée que par des personnes qui n'ont pas participé au développement de la fonctionnalité. Cela permet d'avoir une idée plus objective des manipulations à effectuer pour tester la fonctionnalité. Au cours de la semaine la validation est la tâche exclusive de Batman. Il valide une fiche dès qu'elle a été mise ``À valider'' afin d'avoir le retour le plus rapide sur la fonctionnalité. Lors de la validation, on fait très souvent appel au client XP pour vérifier que la fonctionnalité correspond bien aux besoin énoncés. À la fin de l'itération, lorsque toute les fiche sont terminées et validées, l'équipe commence une validation de l'ensemble des fiches de l'itération. Lorsque toute l'équipe est satisfaite (les bugs éventuels corrigés, documentation relue ...) la livraison peut avoir lieu.
+\section{Code auto-documenté}
+L'équipe R\&D, afin d'avoir un code plus facile à comprendre et à maintenir s'efforce d'auto-documenter son code source. Un code source auto-documenté permet de mettre en avant la sémantique des objets et de leurs méthodes. Dans la mesure du possible on essaye d'avoir des portions de code qui tiennent sur une seule ligne (en particulier dans les tests unitaires). Ces lignes de codes peuvent presque être lues comme des phrases de langage courant dans beaucoup de cas. Le code auto-documenté repose sur certains principes de la programmation orienté objet. Le principe de responsabilité simple (un objet à une seule responsabilité) mis à part ses autres avantages rend le code plus lisible.Les imports statique dans beaucoup de cas rendent le code plus lisible en évitant de mentionner à chaque appel l'origine complète d'un objet.
+
+\begin{lstlisting}[language=java]
+public class EmfModelExtractor implements ModelExtractor {
+    private final ExtractorDriver driver;
+
+    public EmfModelExtractor(final ExtractorDriver driver) {
+        this.driver = driver;
+    }
+
+    public ActionModelProvider extractModel(
+            final ModelHandler modelHandler,
+            final DescriptionRepository descriptionRepository,
+            final EclipseIssueReporter issueReporter) {
+        final Model model = modelHandler.getModel(Model.class);
+        final ModelBuilder modelBuilder = createModelBuilder(model.getName());
+        final Map<Class, ClassBuilder> classesToFactory = new TreeMap<Class, ClassBuilder>(NAMED_ELEMENTS_COMPARATOR);
+        try {
+            final DataExtractor extractor = new EmfDataExtractor(driver);
+            final ModelStructureTranslator modelStructureTranslator = new ModelStructureTranslator(
+                    extractor, descriptionRepository, driver);
+            modelStructureTranslator.translateRootPackage(
+                    model,
+                    modelBuilder.createRootPackage(extractor.extractUniqueIdentifier(model), "root"),
+                    classesToFactory,
+                    modelBuilder.getModel(),
+                    issueReporter);
+            modelStructureTranslator.translateAssociations(classesToFactory, model, issueReporter);
+            new StatechartsTranslator(descriptionRepository, driver).translateStatecharts(
+                    model, classesToFactory, issueReporter);
+        } catch (ModelFactoryException e) {
+            issueReporter.report(error(EMPTY_LOCATION, e.getMessageBundle()));
+            return null;
+        } catch (CancelTranslationException e) {
+            issueReporter.report(error(EMPTY_LOCATION, e.getMessageBundle()));
+            return null;
+        }
+        return new DefaultActionModelProvider(modelBuilder.getModel());
+    }
+}
+\end{lstlisting}
+
+\section{Pomorodo}
+Un mois avant la fin de mon stage l'équipé a commencé à expérimenter la technique du pomodoro(cf. annexe \ref{annexe:pomodoro} p.\pageref{annexe:pomodoro} qui avait été présentée lors du meeting corporate le 10 avril. Cette technique consiste à découper la journée en sous-unités de temps (pomodoros) afin de garder le ``focus'' sur la tâche qu'on est en train de réaliser. Un pomodoro dure 25 minutes et pendant ce temps on se consacre uniquement à la tâche et on ne doit pas être interrompu. Une pause de 5 minutes permet de se changer les idées, prendre du recule et de décider si on continue sur la tâche, si on change de direction, ou si on arrête. J'ai participé activement à cette expérience en proposant et en introduisant pendant les pauses des animations liées au théatre d'improvisation que je pratique régulièrement dans le cadre d'un club de l'Association des Etudiant de l'UTBM.
 
 \section{Semaine type}
 La semaine Agile à la R\&d de SMARTESTING est rythmée par quelques pratiques qui peuvent évoluer.
 \subsection*{Cotation et engagement}
 Avant de commencer une itération, l'engagement est fait. C'est à dire que les fiches qui vont déterminer les développements de la semaine vont être choisies par le client XP. Les fiches sont posées sur le tableau en vue de tous. La somme des vélocités des fiches correspond à la vélocité déterminée lors de la retrospective de l'itération précédente. L'équipe peut alors choisir les fiches qui seront commencées dans la semaine, les binômes se créent. Chaque binôme va ensuite voir le client XP afin de confirmer le périmètre fonctionnel de la fiche. Le client XP peut aussi demander la cotation sur des fiches cotée ``gros grain'' du planning game. L'équipe est réunie et une discussion technique a lieu. Après la discussion l'équipe vote la vélocité estimée de la fiche. 
 
-\subsection{Morning meeting}
+\subsection*{Morning meeting}
 Les membres de l'équipe se réunissent juste avant la pause déjeuner pour parler de ce qu'ils ont fait la matinée. Toute l'équipe est réunie en cercle et se fait passer un objet. Celui qui a l'objet prend la parole. Chaque binôme informe toute l'équipe de l'avancée de son engagement ainsi que des problèmes qu'il rencontre. Le temps de parole est très bref et si un problème mérite une attention particulière il sera traité hors du cercle plus tard. Après le tour du cercle s'il y a des informations complémentaires à mentionner elles le sont. Le meeting se termine ensuite par une pensée du jour.
 
-\subsubsection{Point perso}
+\subsection*{Point perso}
 Le mardi, juste avant la pause déjeuner, un membre de l'équipe fait une présentation à l'aide d'un projecteur sur un sujet de son choix (pas nécessairement lié à l'informatique d'ailleurs). La présentation doit durer 10 minutes. À la fin, les membres de l'équipe peuvent poser des questions et commenter la manière dont la présentation a été réalisée (Intéresser le public, parler clairement, qualité du support...). Cet exercice de communication permet aux membres de l'équipe d'apprendre à partager et à structurer leurs idées. Cela peut être très utile lors de manifestations diverses (xp days, agile tour...). Le point perso a évolué entre le début et la fin de mon stage, et actuellement différentes nouvelles formes en sont expérimentées.
 
-\subsubsection{Discussion sur un livre}
+\subsection*{Discussion sur un livre}
 L'équipe lit un chpitre d'un livre pendant la semaine et se réunit le mercredi avant la pause de midi pour le commenter. Lorsque je suis arrivé elle lisait ``The Art of Agile Development''. Cette activité permet deja de lire en anglais , mais également d'améliorer la cohésion de l'équipe par l'éventuelle adoption de pratiques nouvelles. Plusieurs des pratiques évoquées dans ce livre ont été adoptées après mon arrivée. Ce fut le cas de ``No bugs'', ``Done-done'', ``Slack time'' par exemple. Cette pratique a disparu avec le temps car plusieurs personnes de l'équipe n'y trouvaient plus d'intérêt. Différentes pratiques sont en cours d'expériementation pour remplacer la lecture.
 
-\subsection{Point technique}
+\subsection*{Point technique}
 Le Jeudi matin en début de matinée a lieu le point technique il peut varier dans son contenu. Cela peut aller de la discussion d'un point technique rencontré lors de l'itération à un code contest(cf. lexique \ref{lexique:codeContest} p.\pageref{lexique:codeContest}) de 30 minutes. L'équipe profite de ce point pour apprendre de nouvelles techniques, faire de la ``veille technologique'', faire le point sur des évènements tels que les XP Days\footnote{conférence sur les méthodes agiles \url{http://www.xpday.fr/}}. Les points techniques, au cours de mon stage n'ont plus eu de date précise mais étaient organisés selon les besoins de l'équipe.
-
-\subsection{Pomorodo}
-Un mois avant la fin de mon stage l'équipé a commencé à expérimenter une technique de gestion du temps qui avait été présentée lors du meeting corporate le 10 avril. Cette technique consiste à découper 
-

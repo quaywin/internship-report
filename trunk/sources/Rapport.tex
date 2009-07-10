@@ -21,7 +21,7 @@
 \usepackage[TS1,OT1,T1]{fontenc}
 \usepackage[francais]{babel} %\usepackage[english]{babel}
 \usepackage{colordvi} % Add colour
-\usepackage{listings} % For lists
+\usepackage{listings} % For code source recognition
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{hyperref} % For hypertexts links
 %\usepackage{algorithm} %\usepackage{algorithmic} % For algorithmes
@@ -52,18 +52,30 @@
 %showstringspaces=false}
 
 %------------------------------------------------------------------------
+% JAVA indent and syntax coloration
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{0,0.5,1}
+\definecolor{colString}{rgb}{0.6,0.1,0.1}
+
+\lstset{language=java,
+basicstyle=\ttfamily\tiny, %
+identifierstyle=\color{colIdentifier}, %
+keywordstyle=\color{colKeys}, %
+stringstyle=\color{colString}, %
+commentstyle=\color{colComments}
+}
+%------------------------------------------------------------------------
 
 \newcommand{\clearemptydoublepage}{% New command to make a new clear page
 	\newpage{\pagestyle{empty}\cleardoublepage}}
 
 %------------------------------------------------------------------------
- 
+
 \setlength{\textwidth}{160mm} % LARGEUR
 \setlength{\parindent}{10mm} % Taille des retraits
 
-
 %------------------------------------------------------------------------
-
 \begin{document}
 	\includepdf[pages=1,noautoscale=false]{premiere_page.pdf} 
 	\begin{frontmatter}
@@ -71,13 +83,12 @@
 		\chapter*{}
 		\include{remerciements}
 		\tableofcontents{} % table des matières
+		\listoffigures{}  % table des figures	
 	\end{frontmatter}
 	\begin{mainmatter}
 		\include{content}
 	\end{mainmatter}
-
 	%Annexe
-
 	\part*{Annexes}
 	\begin{appendix}
 	\include{lexique}
@@ -86,7 +97,6 @@
 	\end{appendix}
 	\clearemptydoublepage
 	\begin{backmatter}
-	\listoffigures{}  % table des figures	
 	\includepdf[pages=1,noautoscale=false]{derniere_page.pdf}
 	\end{backmatter}
 \end{document}
