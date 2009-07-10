@@ -58,6 +58,56 @@ Dans test Designer, plusieurs élements ont besoin d'être décrits afin d'être
 \end{figure}
 
 \subsection{Test Suites}
+Les suites de test permettent d'avoir une unité structurante pour tout un ensemble de test à partir des modeleurs. Elles définissent le périmètre des tests. Auparavant, une suite de test était considérée implicitement dans le modèle. Les différents packages\footnote{Equivalent d'un dossier pour stocker des ressources dans Eclipse dans le cadre de la modélisation} contenant des informations relatives aux suites etaient analysés puis elles étaient personalisées (filtre) dans le Target Manager. 
+
+\subparagraph*{}
+En fin du dernier jalon, guidé par des besoins de pouvoir remonter des informations des suites jusque là difficilement accessibles. Le client XP après plusieurs discussions avec l'équipe a décidé qu'il fallait externaliser les suites de test dans des fichiers de type texte. Cette modification de la structure des suite doit permettre d'être une étape de base pour rendre la solution Smartesting ``verticale'' afin de pouvoir par exemple s'intégrer à SAP. La solution choisie a été d'utiliser un fichier texte écrit dans un langage facile à écrire et à comprendre : Yaml\footnote{``YAML Ain't Markup Language''; il s'agit d'un langage dédié à la serialisation (cf. lexique \ref{lexique:serialisation} p.\pageref{lexique:serialisation})}. Yaml est dit ``user friendly'' facile à lire et à comprendre pour un utilisateur.
+
+\begin{figure}[!ht]
+\centering
+\ttfamily{
+\small{
+\begin{verbatim}
+# un commentaire et un tableau
+users:
+  - Toto
+  - Titi
+
+# utilisation de booléens
+vrai: true
+faux: false
+
+# tableaux associatifs multidimensionnels
+foo:
+  toto:  gentil
+  titi:  mechant
+\end{verbatim}
+}
+}
+\caption{Exemple de fichier YAML}
+\label{figure:exYaml}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\ttfamily{
+\small{
+\begin{verbatim}
+--- !TestSuite
+identifier: 4d517188-80af-4255-9405-abc367dcb5a7
+initialModelInstance: initial_model_instance
+version: "1.0"
+\end{verbatim}
+}
+}
+\caption{Exemple de fichier YAML pour les TestSuite}
+\label{figure:exTestSuite}
+\end{figure}
+
+\subparagraph*{}
+Malgré son apparence simple, l'extraction des suite de test a été difficile. Tout d'abord l'équipe ayant peu de conaissances dans Eclipse sur certains domaines relatifs à cette fonctionalité, il a fallu un certain temps d'adaptation. Les différences entre les différents modeleurs ont rendu la tâche encore plus difficile.
+
+
 
 \section{Correction de bugs}
 La correction de bugs fait partie du travail des développeurs même si ce n'est pas forcément agréable. Toutefois les tests, la validation, l'intégration continue et les itérations courtes rendent la détection de bugs très rapide. La plupart des bugs sont en général détectés et corrigés avant la livraison en fin de semaine. Dans l'équipe on considère qu'il existe deux types de bugs. Les bugs client sont des bugs qui ont été remontés par les utilisateurs finaux après une release officielle. Les autres bugs qui sont détectés pendant l'itération ou après des releases mineures ne sont pas considérés comme des bugs client. Cette distinction est importante car, en adoptant la pratique ``No Bugs'' l'équipe s'engage à livrer un produit de qualité avec un minimum d'anomalies. L'équipe R\&D s'est fixée comme obtectif pour l'année d'avoir moins de 40 bugs client. Cet engagement influe sur la prime de l'équipe.
@@ -77,6 +127,7 @@ TODO : utilité ,exemple,
 Sur une courte période j'ai effectué des t\^aches d'administration système. En particulier au moment de l'intégration des Google Apps dans le fonctionnement de Smartesting. La necessité de partager des calendriers et de pouvoir y accéder via des plateformes mobiles a amené Smartesting à envisager d'utiliser Google Apps. Ainsi, en binôme avec Olivier, nous avons appréhendé le panneau d'administration ainsi que les différents services utilisables. Chaque calendrier donne la possibilité d'être exporté, ainsi nous avons pu réaliser une routine de backup\footnote{sauvegarde automatique}.
 
 \section{Réunions et Meeting corporate}
+
 TODO : definition, utilité, ma participation ...
 
 \subsection{Visite de BNP Paribas}
@@ -84,6 +135,10 @@ Mes impressions, les decisions, Smart et BNP ...
 
 \subsection{Amélioration du process, évolution du fonctionnement de l'équipe}
 J'ai été ammené à l'occasion de retrospectives ou de réunions à réfléchir sur le processus de développement au sein de l'équipe. L'équipe de R\&D est très concernée par l'amélioration du processus et toute pratique peut être remise en cause si elle ne convient pas a l'équipe. Chaque décision quelle qu'elle soit doit être approuvée par toute l'équipe avant d'être prise. Je parlerai plus en détail à travers d'exemple du type de décisions qui sont prises sur ce sujet.
+
+\subsection{Evaluation}
+
+
 
 \input{tabevolutionpratiques}
 
