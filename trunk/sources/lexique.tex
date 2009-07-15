@@ -26,7 +26,7 @@ L'eXtreme Programming (XP) est une méthode Agile(cf. \ref{lexique:agile} p.\pag
 La vélocité est une métrique qui permet de faire une estimation du temps que prendra une tâche. La vélocité est utilisée lors de la cotation des fiches. Une fois les fiches réalisées on peut mesurer la différence entre l'estimation et la réalité. Cela dit ce n'est qu'une métrique, même si elle donne un bon ordre d'idée sur l'écoulement du temps elle ne doit pas être considérée comme un objesctif en elle même.
 
 \section{Itération}
-Une itération a en général une durée de 1 à 2 semaines. Elle se termine par la livraison (mineure ou majeure) du programme. Une rétrospective permet de faire le bilan de l'itération passée.
+Une itération a en général une durée de 1 à 2 semaines. Elle se termine par la livraison (mineure ou majeure) du programme. Une rétrospective permet de faire le bilan de l'itération passée. Il est très rare et peu souhaitable que la livraison d'une itération ne dégage pas de valeur pour les utilisateurs (en général testeurs).
 
 \section{Intégration continue}\label{lexique:integrationContinue}
 Lorsqu'une tâche est terminée, les modifications sont immédiatement intégrées dans le produit complet. On évite ainsi la surcharge de travail liée à l'intégration de tous les éléments avant la livraison. Les tests facilitent grandement cette intégration : quand tous les tests passent, l'intégration est terminée. 
@@ -35,7 +35,11 @@ Lorsqu'une tâche est terminée, les modifications sont immédiatement intégré
 La programmation se fait par deux. Le premier appelé driver (ou pilote) tient le clavier. C'est lui qui va travailler sur la portion de code à écrire. Le second appelé partner (ou co-pilote) est là pour l'aider en suggérant de nouvelles possibilités ou en décelant d'éventuels problèmes. Les développeurs changent fréquemment de partenaire ce qui permet d'améliorer la connaissance collective de l'application et d'améliorer la communication au sein de l'équipe. 
 
 \section{Tests unitaires}\label{lexique:testU}
-En programmation informatique, le test unitaire est un procédé permettant de s'assurer du fonctionnement correct d'une partie déterminée d'un logiciel ou d'une portion d'un programme (appelée « unité »). Il s'agit pour le programmeur de tester un module, indépendamment du reste du programme, ceci afin de s'assurer qu'il répond aux spécifications fonctionnelles et qu'il fonctionne correctement en toutes circonstances. Cette vérification est considérée comme essentielle, en particulier dans les applications critiques. Elle s'accompagne couramment d'une vérification de la couverture de code, qui consiste à s'assurer que le test conduit à exécuter l'ensemble (ou une fraction déterminée) des instructions présentes dans le code à tester. L'ensemble des tests unitaires doit être rejoué après une modification du code afin de vérifier qu'il n'y a pas de régressions (l'apparition de nouveaux dysfonctionnements). Dans les applications non critiques, l'écriture des tests unitaires a longtemps été considérée comme une tâche secondaire. Cependant, la méthode Extreme programming (XP) a remis les tests unitaires, appelés « tests du programmeur », au centre de l'activité de programmation. La méthode XP préconise d'écrire les tests en même temps, ou même avant la fonction à tester (Test Driven Development). Ceci permet de définir précisément l'interface du module à développer. En cas de découverte d'un bogue, on écrit la procédure de test qui reproduit le bogue. Après correction on relance le test, qui ne doit indiquer aucune erreur.
+En programmation informatique, le test unitaire est un procédé permettant de s'assurer du fonctionnement correct d'une partie déterminée d'un logiciel ou d'une portion d'un programme (appelée « unité »). Il s'agit pour le programmeur de tester un module, indépendamment du reste du programme, ceci afin de s'assurer qu'il répond aux spécifications fonctionnelles et qu'il fonctionne correctement en toutes circonstances. Cette vérification est considérée comme essentielle, en particulier dans les applications critiques.
+\paragraph*{}
+Elle s'accompagne couramment d'une vérification de la couverture de code, qui consiste à s'assurer que le test conduit à exécuter l'ensemble (ou une fraction déterminée) des instructions présentes dans le code à tester. L'ensemble des tests unitaires doit être rejoué après une modification du code afin de vérifier qu'il n'y a pas de régressions (l'apparition de nouveaux dysfonctionnements). 
+\paragraph*{}
+Dans les applications non critiques, l'écriture des tests unitaires a longtemps été considérée comme une tâche secondaire. Cependant, la méthode Extreme programming (XP) a remis les tests unitaires, appelés « tests du programmeur », au centre de l'activité de programmation. La méthode XP préconise d'écrire les tests en même temps, ou même avant la fonction à tester (Test Driven Development). Ceci permet de définir précisément l'interface du module à développer. En cas de découverte d'un bogue, on écrit la procédure de test qui reproduit le bogue. Après correction on relance le test, qui ne doit indiquer aucune erreur.
 
 \section{Tests haut niveau}\label{lexique:testHL}
 Contrairement aux tests unitaires, les tests haut niveau s'assurent qu'une fonctionalité est opérationelle dans sa globalité. Le resultat d'un opération d'un plus haut niveau d'abstration est donc testé.
@@ -53,21 +57,13 @@ La refactorisation, aussi appelé remaniement de code, (anglicisme venant de ref
 En informatique, la sérialisation (de l'anglais américain serialization, le terme marshalling est souvent employé de façon synonyme) est un processus visant à encoder l'état d'une information qui est en mémoire sous la forme d'une suite d'informations plus petites (dites atomiques, voir l'étymologie de atome) le plus souvent des octets voire des bits. Cette suite pourra par exemple être utilisée pour la sauvegarde (persistance) ou le transport sur le réseau (proxy, RPC…). L'activité symétrique, visant à décoder cette suite pour créer une copie conforme de l'information d'origine, s'appelle la désérialisation (ou unmarshalling).
 
 \section{IntelliJ IDEA}\label{lexique:IDEA}
-IntelliJ IDEA est un environnement de développement JAVA qui permet entre autres la refactorisation de code.
-TODO.
+IntelliJ IDEA est un environnement de développement JAVA qui permet entre autres la refactorisation de code. Il est adapté aux pratiques agiles grâce aux support des serveurs de controle de version (en particulier fusion des fichier avancée). Différents algorithmes rendent son utilisation pratique et agréable (copier/coller avec copie des imports, divers avertissements, formatage automatique de code, gestion des historiques subversion, ...)
+
 \section{Client XP}\label{lexique:clientXP}
-Appelé également client sur site; TODO
-
-\section{Commit}\label{lexique:commit}
-TODO
-
-\section{Rollback}\label{lexique:rollback}
-TODO
+Appelé également client sur site, son rôle est de jouer l'interlocuteur au sein de l'équipe de développement. Il décide à chaque itération le fonctionnalité sur lesquelle l'équipe va travailler. Par le biais de discussions avec les développeurs, il s'assure que ce qui est développé correspond exactement aux besoins. Le client XP vient en général de l'entreprise TODO???
 
 \section{Road-map}
 La road-map est une planification des tâches à effectuer pour les différents jalons à venir. Elle donne les directions que l'entreprise prend pour l'avenir. Elle est créée par la mission produit qui est constituée du directeur de production, du client XP, d'un représentant des consultants, d'un représentant de la R\&D et d'un représentant des ventes.La road-map est élaborée lors d'un jeu de rôles (planning game). Et chaque fonctionnalité cotée gros grain (vision sur le moyen et long terme) est placée sur les différents jalons à venir. Ainsi une plannification sur le moyen et long terme (vision sur 3-4 jalons) est faite.
 
 \section{Code contest}\label{lexique:codeContest}
-
-\section{OCL}\label{lexique:OCL}
-TODO : blabla OCL.
+C'est une challenge entre plusieurs équipes de programmeurs. Le but est de coder une petite application dans un temps limité sur un sujet précis. 
