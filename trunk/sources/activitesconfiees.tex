@@ -10,7 +10,7 @@ Parmi les activité qui m'ont été confiées, j'ai participé à la réalisatio
 Au début de mon stage, la première fonctionnalité sur laquelle j'ai travaillé fut des observations. Dans le produit, le observations sont des stéréotypes\footnote{stéréotypes au sens UML} attachés à des opérations de classes du modèle de test. Les observations sont déclenchées par des triggers\footnote{Événement déclencheur} selon une pré-condition décrite dans le langage OCL(cf. lexique \ref{lexique:OCL} p.\pageref{lexique:OCL}). Dans les modeleurs, à l'export, ce stéréotype est reconnu et intégré au modèle propre à Test Designer. Les observations font office de ``points de contrôle '' permettant de vérifier que le système sous test réagit correctement.
 
 \subparagraph*{}
-Les observations sont introduites dans les deux modeleurs principaux de façon différente. Dans RSM, les stéréotypes et la gestion des triggers spécifiques à Smartesting proviennent d'un profil personnalisé. L'utilisation des profils dans le modeleur Together ont été l'occasion d'une autre fiche à laquelle j'ai contribué. Cependant mon binôme et moi-même nous somme rendu compte, après avoir passé 4 points de vélocité sur cette fiche cotée à 2, que c'était plus compliqué que nous l'imaginions. Nous avons alors suspendu la fiche en attente de conseils d'OBEO\footnote{OBEO est une société de conseil experte dans le domaine de la modélisation EMF/GMF sous Eclipse}. Finalement la après leur réponse, nous avons dù Rollback(cf. lexique \ref{lexique:rollback} p.\pageref{lexique:rollback}) notre travail. La solution adaptée finalement fut d'utiliser le code péexistant. C'est à dire utiliser des propriétés ``Custom''(cf. figure \ref{figure:obsTriggerTG} p.\pageref{figure:obsTriggerTG}) pour gérer les triggers dans Together. Ces triggers servent à déterminer les opérations que l'on souhaite observer. Une fois définies dans le modèle UML et après export, les observations sont visibles dans Test Designer (cf. figure\ref{figure:obsTD} p.\pageref{figure:obsTD}).
+Les observations sont introduites dans les deux modeleurs principaux de façon différente. Dans RSM, les stéréotypes et la gestion des triggers spécifiques à Smartesting proviennent d'un profil personnalisé. L'utilisation des profils dans le modeleur Together ont été l'occasion d'une autre fiche à laquelle j'ai contribué. Cependant mon binôme et moi-même nous somme rendu compte, après avoir passé 4 points de vélocité sur cette fiche cotée à 2, que c'était plus compliqué que nous l'imaginions. Nous avons alors suspendu la fiche en attente de conseils d'OBEO\footnote{OBEO est une société de conseil experte dans le domaine de la modélisation EMF/GMF sous Eclipse}. Finalement la après leur réponse, nous avons dù ``Rollback'' \footnote{revenir à la version précédente} notre travail. La solution adaptée finalement fut d'utiliser le code péexistant. C'est à dire utiliser des propriétés ``Custom''(cf. figure \ref{figure:obsTriggerTG} p.\pageref{figure:obsTriggerTG}) pour gérer les triggers dans Together. Ces triggers servent à déterminer les opérations que l'on souhaite observer. Une fois définies dans le modèle UML et après export, les observations sont visibles dans Test Designer (cf. figure\ref{figure:obsTD} p.\pageref{figure:obsTD}).
 
 \begin{figure}[!ht]
 \centering
@@ -134,7 +134,6 @@ Le refactoring a lieu dans le cadre de travail sur du code de production lors de
 Sur une courte période j'ai effectué des t\^aches d'administration système. En particulier au moment de l'intégration des Google Apps dans le fonctionnement de Smartesting. La necessité de partager des calendriers et de pouvoir y accéder via des plateformes mobiles a amené Smartesting à envisager d'utiliser Google Apps. Ainsi, en binôme avec Olivier, nous avons appréhendé le panneau d'administration ainsi que les différents services utilisables. Chaque calendrier donne la possibilité d'être exporté, ainsi nous avons pu réaliser une routine de backup\footnote{sauvegarde automatique}.
 
 \section{Réunions}
-J'ai assisté à différents types de réunions au cours de mon stage.
 
 \subsection{Meeting corporate}
 Le meeting corporate a lieu tous les quatre mois chez Smartesting. Cette serie de journées est dédiée au bilan du quart précédent et aux engagements sur le prochain quart. Les engagements sont divers et vont des ventes (objectifs en chiffre d'affaires) aux développeurs (fonctionnalités). J'ai assisté à deux meetings corporate au cours de mon stage. Le premier meeting corporate a eu lieu du 8 au 10 avril, le second du 6 au 8 juillet. Les différents collaborateurs de Smartesting sont réunis lors de ces journées. La première journée commence par une réunion générale résumant dans les grandes ligne le bilan du quart précédent et certains objectifs du suivant. Les commerciaux, les avant-vente, les consultants, les développeurs et le directoire peuvent ainsi avoir des nouvelles sur chaque service de l'entreprise. Les objectifs de ventes sont exposés, les résultats de la fin du Jalon sont commentés, les opportunités de contrats avec de nouveaux clients sont présentées.
@@ -145,13 +144,19 @@ J'ai été ammené à l'occasion de retrospectives ou de réunions à réfléchi
 \subparagraph*{}
 L'ensemble des réunions ont amené l'équipe à proposer et remettre en question certaines pratiques lorsque le besoin s'en ressentatait. La séance de lecture hebdomadaire du livre ``The Art of Agile Developpment'' a ammené plusieurs pratiques telles que ``Done-done'', ``No-bugs'', ``Slack-Time''. Des discussions lors de rétrospectives ont entrainé l'expérimentation pendant un jour de la technique du pomodoro (cf. annexe \ref{annexe:pomodoro} p.\pageref{annexe:pomodoro}). L'expérimentation a continué pendant une semaine, puis a été adpotée jusqu'à nouvel ordre.
 
-\subparagraph*{}
-Plus recemment on recherche à devenir une ``équipe performante'' au sens de Lean\footnote
-
-TODO : Decisions lors de retrospectives, Iteration 1 semaine, Slack, reduction de vélocité, Done-done, rédaction(et simplification) des standards, Objectifs R\&D, ...
-
 \input{tabevolutionpratiques}
 
+\subparagraph*{}
+Plus recemment on recherche à devenir une ``équipe performante'' au sens de Lean(cf. lexique \ref{lexique:lean} p.\pageref{lexique:lean}). Certaines valeurs de Lean sont intéressante à utiliser pour renforcer l'équipe :
+\begin{itemize}
+\item prendre soin de soi
+\item être connecté avec les autres
+\item avoir une vision partagée
+\item avoir conscience que le produit est à l'image de l'équipe, inversement l'équipe est à l'image du produit
+\end{itemize}
 
+\subparagraph*{}
+Certains standards de l'équipe R\&D ont été rédigés et affichés. Même s'ils sont souvent voués à changer, cela permet de se rappeler rapidement les pratiques qui ont été adoptées par l'équipe. Si une pratique n'est plus utilisée par toute l'équipe cela signifie qu'elle est peut être vouée à disparaître.
 
 \subsection{Evaluation}
+Lors de mon stage j'ai accepté de me faire évaluer comme si j'étais un salarié de Smartesting. L'évaluation est bi-annuelle, elle a pour but de faire connaitre au directoire comment 
