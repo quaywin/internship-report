@@ -5,7 +5,7 @@ L'équipe dans laquelle je fais mon stage utilise des méthodes Agiles(cf. lexiq
 %Travail sur IDEA, svn
 %TODO : mise en place, utilisation, utilité ...
 \section{Contrôle de version}
-Le projet ainsi que différentes ressources de Smartesting sont versionnées sur un serveur Subversion (SVN). L'environnement de développement IntelliJ IDEA est compatible avec SVN et permet une utilisation efficace et agréable de cet outil. Le contrôle de version est primordial dans le processus de développement pour plusieurs raisons. Il sert de ``garde-fou''; lorsqu'un développement n'aboutit pas il est facile de Rollback(cf. lexique \ref{lexique:rollback} p.\pageref{lexique:rollback}). Il permet également grâce à la gestion des conflits des gérer des modifications effectuées sur les mêmes fichiers par des binômes différents (cf. figure \ref{figure:ideaMerge} p.\pageref{figure:ideaMerge}). TRAC permet également de faire un suivi rapide du code source qui a été ``commit''\footnote{envoyé au serveur, intégré au code source de l'application} (cf. figure \ref{figure:trac} p.\pageref{figure:trac}).
+Le projet ainsi que différentes ressources de Smartesting sont versionnées sur un serveur Subversion (SVN). L'environnement de développement IntelliJ IDEA est compatible avec SVN et permet une utilisation efficace et agréable de cet outil. Le contrôle de version est primordial dans le processus de développement pour plusieurs raisons. Il sert de ``garde-fou''; lorsqu'un développement n'aboutit pas il est facile de Rollback\footnote{revenir à une version précédente}. Il permet également grâce à la gestion des conflits des gérer des modifications effectuées sur les mêmes fichiers par des binômes différents (cf. figure \ref{figure:ideaMerge} p.\pageref{figure:ideaMerge}). TRAC permet également de faire un suivi rapide du code source qui a été ``commit''\footnote{envoyé au serveur, intégré au code source de l'application} (cf. figure \ref{figure:trac} p.\pageref{figure:trac}).
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\textwidth]{Illustrations/ideaMerge.png}
@@ -64,39 +64,39 @@ L'équipe R\&D, afin d'avoir un code plus facile à comprendre et à maintenir s
 \centering
 \begin{lstlisting}[language=java]
 public class EmfModelExtractor implements ModelExtractor {
-private final ExtractorDriver driver;
-public EmfModelExtractor(final ExtractorDriver driver) {
-this.driver = driver;
-}
-public ActionModelProvider extractModel(
-final ModelHandler modelHandler,
-final DescriptionRepository descriptionRepository,
-final EclipseIssueReporter issueReporter) {
-final Model model = modelHandler.getModel(Model.class);
-final ModelBuilder modelBuilder = createModelBuilder(model.getName());
-final Map<Class, ClassBuilder> classesToFactory = new TreeMap<Class, ClassBuilder>(NAMED_ELEMENTS_COMPARATOR);
-try {
-final DataExtractor extractor = new EmfDataExtractor(driver);
-final ModelStructureTranslator modelStructureTranslator = new ModelStructureTranslator(
-extractor, descriptionRepository, driver);
-modelStructureTranslator.translateRootPackage(
-model,
-modelBuilder.createRootPackage(extractor.extractUniqueIdentifier(model), "root"),
-classesToFactory,
-modelBuilder.getModel(),
-issueReporter);
-modelStructureTranslator.translateAssociations(classesToFactory, model, issueReporter);
-new StatechartsTranslator(descriptionRepository, driver).translateStatecharts(
-model, classesToFactory, issueReporter);
-} catch (ModelFactoryException e) {
-issueReporter.report(error(EMPTY_LOCATION, e.getMessageBundle()));
-return null;
-} catch (CancelTranslationException e) {
-issueReporter.report(error(EMPTY_LOCATION, e.getMessageBundle()));
-return null;
-}
-return new DefaultActionModelProvider(modelBuilder.getModel());
-}
+   private final ExtractorDriver driver;
+   public EmfModelExtractor(final ExtractorDriver driver) {
+      this.driver = driver;
+   }
+   public ActionModelProvider extractModel(
+      final ModelHandler modelHandler,
+      final DescriptionRepository descriptionRepository,
+      final EclipseIssueReporter issueReporter) {
+         final Model model = modelHandler.getModel(Model.class);
+         final ModelBuilder modelBuilder = createModelBuilder(model.getName());
+         final Map<Class, ClassBuilder> classesToFactory = new TreeMap<Class, ClassBuilder>(NAMED_ELEMENTS_COMPARATOR);
+         try {
+            final DataExtractor extractor = new EmfDataExtractor(driver);
+            final ModelStructureTranslator modelStructureTranslator = new ModelStructureTranslator(
+            extractor, descriptionRepository, driver);
+            modelStructureTranslator.translateRootPackage(
+               model,
+               modelBuilder.createRootPackage(extractor.extractUniqueIdentifier(model), "root"),
+               classesToFactory,
+               modelBuilder.getModel(),
+               issueReporter);
+            modelStructureTranslator.translateAssociations(classesToFactory, model, issueReporter);
+            new StatechartsTranslator(descriptionRepository, driver).translateStatecharts(
+            model, classesToFactory, issueReporter);
+         } catch (ModelFactoryException e) {
+            issueReporter.report(error(EMPTY_LOCATION, e.getMessageBundle()));
+            return null;
+         } catch (CancelTranslationException e) {
+            issueReporter.report(error(EMPTY_LOCATION, e.getMessageBundle()));
+            return null;
+         }
+      return new DefaultActionModelProvider(modelBuilder.getModel());
+   }
 }
 \end{lstlisting}
 \caption{Exemple de code auto-commenté}
