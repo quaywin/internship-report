@@ -1,0 +1,151 @@
+\chapter{Déroulement de mon travail}
+Pendant mon stage j'ai participé à beaucoup de fiches différentes, il serait long et ennuyeux de les détailler toutes sachant que je participai à entre 1 et 4 fiches par semaine. Je présenterai dans les grandes lignes les fonctionnalités majeures auxquelles j'ai participé. La plupart des fonctionnalités sont découpées en plusieurs fiches.
+\section{Développements sur le code de production}
+Parmi les activités qui m'ont été confiées, j'ai participé à la réalisation de fiches blanches (cf. \ref{agile:fiches} p.\pageref{agile:fiches}). Ce code est appelé ``code de production'' car il couvre les besoins fonctionnels exprimés par le client XP. La première étape dans le travail sur une fiche est de préciser le périmètre fonctionnel avec le client XP. Ceci permet aux développeurs de connaitre son besoin précis.
+\subparagraph*{}
+Ensuite, dans la mesure du possible, on crée les tests unitaires qui permettront de savoir si la fonctionnalité est opérationnelle. Les membres du binôme peuvent prendre le clavier au moment où ils le souhaitent et proposer leurs idées. Chaque direction prise et ainsi réfléchie et validée par les deux du binôme.
+\subsection{Observations}
+\subparagraph*{}
+Au début de mon stage, la première fonctionnalité sur laquelle j'ai travaillé fut des observations. Dans le produit, le observations sont des stéréotypes\footnote{stéréotypes au sens UML} attachés à des opérations de classes du modèle de test. Les observations sont déclenchées par des triggers\footnote{Événement déclencheur} selon une pré-condition décrite dans le langage OCL\footnote{OCL (Object Constraint Language) est un langage informatique d'expression des contraintes utilisé par UML.}. Dans les modeleurs, à l'export, ce stéréotype est reconnu et intégré au modèle propre à Test Designer. Les observations font office de ``points de contrôle '' permettant de vérifier que le système sous test réagit correctement.
+\subparagraph*{}
+Les observations sont introduites dans les deux modeleurs principaux de façon différente. Dans RSM, les stéréotypes et la gestion des triggers spécifiques à Smartesting proviennent d'un profil personnalisé. L'utilisation des profils dans le modeleur Together ont été l'occasion d'une autre fiche à laquelle j'ai contribué. Cependant mon binôme et moi-même nous somme rendu compte, après avoir passé 4 points de vélocité sur cette fiche cotée à 2, que c'était plus compliqué que nous l'imaginions.
+\subparagraph*{}
+Nous avons alors suspendu la fiche en attente de conseils d'OBEO\footnote{OBEO est une société de conseil experte dans le domaine de la modélisation EMF/GMF sous Eclipse}. Finalement la après leur réponse, nous avons dû ``Rollback'' \footnote{revenir à la version précédente} notre travail. La solution adaptée finalement fut d'utiliser le code préexistant. C'est à dire utiliser des propriétés ``Custom''(cf. figure \ref{figure:obsTriggerTG} p.\pageref{figure:obsTriggerTG}) pour gérer les triggers dans Together. Ces triggers servent à déterminer les opérations que l'on souhaite observer. Une fois définies dans le modèle UML et après export, les observations sont visibles dans Test Designer (cf. figure\ref{figure:obsTD} p.\pageref{figure:obsTD}).
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{Illustrations/Observation_Trigger_Together.png}
+\caption{Intégration des observations dans Together}
+\label{figure:obsTriggerTG}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{Illustrations/Observation.png}
+\caption{Intégration des observations dans Test Designer}
+\label{figure:obsTD}
+\end{figure}
+\subsection{Descriptions}
+\subparagraph*{}
+Dans test Designer, plusieurs éléments ont besoin d'avoir une description attachée afin d'être exploitables à la publication, par exemple dans la publication HTML, HP Mercury Quality Center ou encore dans Rational Quality Manager. A l'origine les descriptions qui étaient déjà implémentées étaient publiées en texte brut. Après un court spike (cf. lexique \ref{lexique:spike} p.\pageref{lexique:spike}) nous nous sommes aperçu que plusieurs publishers supportaient des balises HTML. Il était également possible de mettre du texte en forme en amont dans les modeleurs (cf. tableau \ref{tableau:compatDescHTML} p. \pageref{tableau:compatDescHTML}). \subparagraph*{}
+Néanmoins, certaines versions de modeleurs n'ont pas les mêmes standards de mise en forme des descriptions. Ainsi il a fallu passer par une étape intermédiaire pour unifier les descriptions dans un format spécifique interne. Il est par exemple nécessaire d'enlever certaines balises en trop ou encore de convertir des balises en d'autres plus globalement supportées. Nous avons choisi d'utiliser le format XHTML avec l'aide de la bibliothèque JTidy (cf \ref{figure:descXHTMLPublisher} p. \pageref{figure:descXHTMLPublisher}). Les descriptions obtenues sont ensuite ``rendues'' pour être affichées ainsi qu'on le souhaite dans les différents publishers.
+\begin{table}[!ht]
+\caption{\label{tableau:compatDescHTML}Compatibilité HTML des modeleurs et publishers}
+\begin{tabular}{|l|l|l|}
+\hline
+Type & Nom & Balises supportées (simplifié) \\
+\hline
+\hline
+\multirow{4}{*}{Modeleurs} & Together 2007 & HTML <b><i><u> \\
+& RSM 7.0.0.x & texte brut\\
+& RSM 7.0.5.x & HTML <b><i><u> + centrer + paragraphes\\ 
+& RSM 7.5 & HTML <b><i><u>+ centrer + paragraphes + autres\\ \hline
+\multirow{3}{*}{Publishers} & HTML & \\
+& Quality Center & texte brut et HTML <b><i><u> \\
+& Specification (pdf) & <strong><em><ins> \\
+& Prototype RQM & HTML <b><i><u> \\ \hline
+\end{tabular}
+\end{table}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{Illustrations/bigDescSchema.png}
+\caption{Passage des descriptions des modeleurs à leur publication}
+\label{figure:descXHTMLPublisher}
+\end{figure}
+\subsection{Test Suites}
+Les suites de test permettent d'avoir une unité structurante pour tout un ensemble de test à partir des modeleurs. Elles définissent le périmètre des tests. Auparavant, une suite de test était considérée implicitement dans le modèle. Les différents packages\footnote{Équivalent d'un dossier pour stocker des ressources dans Eclipse dans le cadre de la modélisation} contenant des informations relatives aux suites étaient analysés puis elles étaient personnalisées (filtre) dans le Target Manager. 
+\subparagraph*{}
+En fin du dernier jalon, guidé par des besoins de pouvoir remonter des informations des suites jusque là difficilement accessibles. Le client XP après plusieurs discussions avec l'équipe a décidé qu'il fallait externaliser les suites de test dans des fichiers de type texte.
+\subparagraph*{}
+Cette modification de la structure des suite doit permettre d'être une première étape pour unrendre la solution Smartesting ``verticale'' afin de pouvoir par exemple s'intégrer à SAP. La solution choisie a été d'utiliser un fichier texte écrit dans un langage facile à écrire et à comprendre : Yaml\footnote{``YAML Ain't Markup Language''; il s'agit d'un langage dédié à la serialisation (cf. lexique \ref{lexique:serialisation} p.\pageref{lexique:serialisation})}. Yaml est dit ``user friendly'' facile à lire et à comprendre pour un utilisateur.
+\begin{figure}[!ht]
+\centering
+\ttfamily{
+\small{
+\begin{verbatim}
+# un commentaire et un tableau
+users:
+- Toto
+- Titi
+# utilisation de booléens
+vrai: true
+faux: false
+# tableaux associatifs multidimensionnels
+foo:
+toto: gentil
+titi: mechant
+\end{verbatim}
+}
+}
+\caption{Exemple de fichier YAML}
+\label{figure:exYaml}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+\ttfamily{
+\small{
+\begin{verbatim}
+--- !TestSuite
+identifier: 4d517188-80af-4255-9405-abc367dcb5a7
+initialModelInstance: initial_model_instance
+version: "1.0"
+\end{verbatim}
+}
+}
+\caption{Exemple de fichier YAML pour les TestSuite}
+\label{figure:exTestSuite}
+\end{figure} 
+\subparagraph*{}
+Malgré sa simplicité apparente, l'extraction des suite de test a été difficile. Tout d'abord l'équipe ayant peu de connaissances dans Eclipse sur certains domaines relatifs à cette fonctionnalité, il a fallu un peu de temps d'adaptation. Les différences entre les modeleurs ont rendu la tâche encore plus difficile. Plusieurs étapes ont été nécessaires lors de l'élaboration de cette fonctionnalité.
+\subparagraph*{}
+Une fois le standard de format de fichier établi pour le suites de test, il a été possible de créer des outils permettant de prendre en compte ce fichier lors de l'extraction du modèle. Une interface graphique de type ''wizard`` a été créée pour faciliter la saisie des données par l'utilisateur.
+\subparagraph*{}
+D'un autre coté un autre binôme travaillait sur gestion de l'écoute des fichiers de suites de test. Ceci a pour but de s'assurer que les données inscrites dans l'éditeur du fichier de suites de test sont bien mises à jours lors de la modification des noms de package, leur déplacement ou autre. Cette fonctionalité étant difficile à mettre en place sans générer des familles de bugs gênantes, elle a été abandonée.
+\subparagraph*{}
+Les suites de test ont fait l'objet d'une release 3.4.1 peu de temps après la release majeure du jalon de la version 3.4. Cette livraison a eu lieu en début de mois de juillet.
+\section{Correction de bugs}
+La correction de bugs fait partie du travail des développeurs même si ce n'est pas forcément agréable. Toutefois les tests, la validation, l'intégration continue et les itérations courtes rendent la détection de bugs très rapide.
+\subparagraph*{}
+La detection des bugs au plus tôt est primordiale poue éviter les coûts supplémentaires (patch, mises à jour, perte d'utilisateurs...) après les livraions. La plupart des bugs sont en général détectés et corrigés avant la livraison en fin de semaine. Dans l'équipe on considère qu'il existe deux types de bugs. Les bugs client sont des bugs qui ont été remontés par les utilisateurs finaux après une release officielle. Les autres bugs qui sont détectés pendant l'itération ou après des releases mineures ne sont pas considérés comme des bugs client.
+\subparagraph*{}
+Cette distinction est importante car, en adoptant la pratique ``No Bugs'' l'équipe s'engage à livrer un produit de qualité avec un minimum d'anomalies. L'équipe R\&D s'est fixée comme objectif pour l'année d'avoir moins de 40 bugs client. Cet engagement influe sur la prime de l'équipe.
+\section{Documentation}
+Certaines fonctionnalités nécessitent d'être documentées dans le guide de l'utilisateur. La documentation de Test Designer est entièrement en anglais au format HTML. Les parties relatives à l'outil lui même et aux plugins dans les modeleurs peuvent être accompagnées de captures d'écran lorsque cela est nécessaire. 
+\subparagraph*{}
+Dans ce cas il arrive très souvent que la documentation soit dédoublée dans le cas des différents modeleurs. Mis à part le guide de l'utilisateur, il est nécessaire de mettre à jour les release notes lors de la livraison d'un version destinée à des utilisateurs finaux. La documentation, une fois réalisée est soumise à une relecture par une autre personne.
+\section{Validation}
+La validation joue un rôle important lors de l'itération. Une partie de la validation est réalisée en permanence par les serveurs d'intégration continue. Une autre partie (en général, l'utilisation via l'interface homme-machine) ne peut être réalisée que par des personnes qui n'ont pas participé au développement de la fonctionnalité. Cela permet d'avoir une idée plus objective des manipulations à effectuer pour tester la fonctionnalité.
+\subparagraph*{}
+Au cours de la semaine, la validation est la tâche exclusive de ``Batman''\footnote{Le rôle de ``Batman'' est de veiller à ce que les développeurs qui travaillent en paire ne soient pas interrompus. Il prend donc en charge les bugs et la validation quand ils arrivent au cours de l'itération}. Il valide une fiche dès qu'elle a été mise ``À valider'' afin d'avoir le retour le plus rapide sur la fonctionnalité.
+\subparagraph*{}
+Lors de la validation, on fait très souvent appel au client XP pour vérifier que la fonctionnalité correspond bien aux besoin énoncés. À la fin de l'itération, lorsque toutes les fiche sont terminées et validées, l'équipe commence une validation de l'ensemble des fiches de l'itération. Lorsque toute l'équipe est satisfaite (les bugs éventuels corrigés, documentation relue ...) la livraison peut avoir lieu.
+\section{Amélioration du code existant (refactoring)}
+Le refactoring est une pratique courante dans les développements de l'équipe R\&D de Smartesting. Il consiste à rendre le code plus facile à maintenir ou à lire sans pour autant modifier les fonctionnalités. Cela peut se faire de différentes manières. Le code peut être modifié en vue d'être auto-commenté (cf. \ref{autoComm} p.\pageref{autoComm}). Il peut être découpé en d'autres méthodes et classes pour être plus facile à tester unitairement. Il peut aussi être déplacé dans d'autres packages.
+\subparagraph*{}
+Le refactoring a lieu dans le cadre de travail sur du code de production lors de fiches blanches. Il peut également être mis en pratique lors de réduction de dette de code\footnote{La dette de code est un phénomène qui a lieu lorsqu'un code source produit devient de plus en plus dur à maintenir du fait de modifications successives ou d'un mauvais design. Ce phénomène est à éviter à tout prix car plus la dette de code est grande plus il est difficile de la réduire.} pendant le ''slack-time``.
+\section{Prototypes}
+L'équipe s'est engagée à livrer un certain nombre de prototypes par an. Sous l'appelation de prototype, on sous entend des fonctionnalités qui ont une bonne valeur pour les utilisateurs mais qui ne sont pas prévue dans la roadmap. Les développeurs profitent donc du slack-time pour développer leurs prototypes. Cela peut aller de l'ajout de raccourci dans des menus contextuels pour rendre l'utilisation plus simple à un algorithme de génération de test pouvant couvrir toutes les exigences d'un modèle de test. J'ai participé au developpement d'un prototype permettant d'afficher de façon graphique les tests. Ce prototype permet d'avoir un aperçu rapide des test pour pouvoir les optimiser.
+\section{Administration système}
+Sur une courte période j'ai effectué des t\^aches d'administration système. En particulier au moment de l'intégration des Google Apps dans le fonctionnement de Smartesting. La necessité de partager des calendriers et de pouvoir y accéder via des plateformes mobiles a amené Smartesting à envisager d'utiliser Google Apps. Ainsi, en binôme avec Olivier, nous avons appréhendé le panneau d'administration ainsi que les différents services utilisables. Chaque calendrier donne la possibilité d'être exporté, ainsi nous avons pu réaliser une routine de backup\footnote{sauvegarde automatique}.
+\section{Réunions}
+\subsection{Meeting corporate}
+Le meeting corporate a lieu tous les quatre mois chez Smartesting. Cette série de journées est dédiée au bilan du quart précédent et aux engagements sur le prochain quart. Les engagements sont divers et vont des ventes (objectifs en chiffre d'affaires) aux développeurs (fonctionnalités). J'ai assisté à deux meetings corporate au cours de mon stage. Le premier meeting corporate a eu lieu du 8 au 10 avril, le second du 6 au 8 juillet.
+\subparagraph*{}
+Les différents collaborateurs de Smartesting sont réunis lors de ces journées. La première journée commence par une réunion générale résumant dans les grandes ligne le bilan du quart précédent et certains objectifs du suivant. Les commerciaux, les avant-vente, les consultants, les développeurs et le directoire peuvent ainsi avoir des nouvelles sur chaque service de l'entreprise. Les objectifs de ventes sont exposés, les résultats de la fin du Jalon sont commentés, les opportunités de contrats avec de nouveaux clients sont présentées.
+\subsection{Amélioration du process, évolution du fonctionnement de l'équipe}
+J'ai été amené à l'occasion de rétrospectives ou de réunions à réfléchir sur le processus de développement au sein de l'équipe. L'équipe de R\&D est très concernée par l'amélioration du processus et toute pratique peut être remise en cause si elle ne convient pas a l'équipe.
+\subparagraph*{}
+Chaque décision, quelle qu'elle soit, doit être approuvée par toute l'équipe avant d'être prise. L'évolution des pratiques a lieu en permanence et entre le début et la fin de mon stage beaucoup de pratiques sont apparues et d'autres ont disparu (cf. tableau \ref{tableau:evolPratXP} p.\pageref{tableau:evolPratXP}).
+\subparagraph*{}
+L'ensemble des réunions ont amené l'équipe à proposer et remettre en question certaines pratiques lorsque le besoin s'en ressentait. La séance de lecture hebdomadaire du livre ``The Art of Agile Developpment'' a ammené plusieurs pratiques telles que ``Done-done'', ``No-bugs'', ``Slack-Time''. Des discussions lors de rétrospectives ont entrainé l'expérimentation pendant un jour de la technique du pomodoro (cf. annexe \ref{annexe:pomodoro} p.\pageref{annexe:pomodoro}). L'expérimentation a continué pendant une semaine, puis a été adoptée jusqu'à nouvel ordre.
+\input{tabevolutionpratiques}
+\subparagraph*{}
+Plus recemment on recherche à devenir une ``équipe performante'' au sens de Lean(cf. lexique \ref{lexique:lean} p.\pageref{lexique:lean}). Certaines valeurs de Lean sont intéressante à utiliser pour renforcer l'équipe :
+\begin{itemize}
+\item prendre soin de soi
+\item être connecté avec les autres
+\item avoir une vision partagée
+\item avoir conscience que le produit est à l'image de l'équipe, inversement l'équipe est à l'image du produit
+\end{itemize}
+\subparagraph*{}
+Certains standards de l'équipe R\&D ont été rédigés et affichés. Même s'ils sont souvent voués à changer, cela permet de se rappeler rapidement les pratiques qui ont été adoptées par l'équipe. Si une pratique n'est plus utilisée par toute l'équipe cela signifie qu'elle est peut être vouée à disparaître.
+\subsection{Évaluation}
+Lors de mon stage j'ai accepté de me faire évaluer comme si j'étais un salarié de Smartesting. L'évaluation est bi-annuelle, elle a pour but de faire connaitre au directoire comment se sent chaque membre de l'équipe. Un suivi est établi d'évaluation en évaluation.
