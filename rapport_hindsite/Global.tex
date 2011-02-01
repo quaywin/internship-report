@@ -1,0 +1,212 @@
+\documentclass[12pt,a4paper,utf8x]{report}
+\usepackage [english]{babel}
+
+% Pour pouvoir utiliser 
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{pifont}
+\newcommand{\tick}{\ding{51}} % to write ticks
+\newcommand{\badtick}{\ding{55}} % to write cross
+
+\usepackage[pdftex]{graphicx} % to include pictures
+\usepackage{pdfpages} % to include PDF pages as pictures (1st and last page)
+
+\usepackage{url} % Pour avoir de belles url
+\usepackage {geometry}
+
+\usepackage{color}
+\usepackage{xcolor}
+
+% Pour mettre du code source
+\usepackage {listings}
+% Pour pouvoir passer en paysage
+\usepackage{lscape}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\lstdefinelanguage{JavaScript}{
+     keywords={attributes, class, classend, do, empty, endif, endwhile, fail, function, functionend, if, implements, in, inherit, inout, not, of, operations, out, return, set, then, types, while, use},
+     keywordstyle=\color{blue}\bfseries,
+     ndkeywords={},
+     ndkeywordstyle=\color{yellow}\bfseries,
+     identifierstyle=\color{black},
+     sensitive=false,
+     comment=[l]{//},
+     commentstyle=\color{green}\ttfamily,
+     stringstyle=\color{red}\ttfamily
+  }
+
+  \usepackage{courier}
+ \lstset{
+         basicstyle=\footnotesize\ttfamily, % Standardschrift
+         %numbers=left,               % Ort der Zeilennummern
+         numberstyle=\tiny,          % Stil der Zeilennummern
+         %stepnumber=2,               % Abstand zwischen den Zeilennummern
+         numbersep=5pt,              % Abstand der Nummern zum Text
+         tabsize=2,                  % Groesse von Tabs
+         extendedchars=true,         %
+         breaklines=true,            % Zeilen werden Umgebrochen
+         keywordstyle=\color{red},
+    		frame=b,      	
+    	 identifierstyle=\ttfamily,   
+		 keywordstyle=\color[rgb]{0,0,1},
+         commentstyle=\color[rgb]{0.133,0.545,0.133},
+         stringstyle=\color[rgb]{0.627,0.126,0.941},
+         %stringstyle=\color{white}\ttfamily, % Farbe der String
+         showspaces=false,           % Leerzeichen anzeigen ?
+         showtabs=false,             % Tabs anzeigen ?
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         %backgroundcolor=\color{lightgray},
+         showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
+ }
+ 
+ \lstloadlanguages{XML, HTML,Java,PHP,SQL,JavaScript}
+
+
+% Pour pouvoir faire plusieurs colonnes
+\usepackage {multicol}
+% POur crééer un index
+\usepackage{makeidx}
+\makeindex
+
+% Pour les entetes de page
+\usepackage{fancyhdr} % Header and footnotes
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} \fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\addtolength{\headheight}{0.5pt}
+\addtolength{\headwidth}{100pt }
+\renewcommand{\footrulewidth}{0pt}
+
+% Pour l'interligne de 1.5
+\usepackage {setspace}
+% Pour les marges de la page
+\geometry{a4paper, top=2.5cm, bottom=3.5cm, left=1.5cm, right=1.5cm, marginparwidth=1.2cm}
+
+\parskip=5pt %% distance entre § (paragraphe)
+\sloppy %% respecter toujours la marge de droite 
+
+% Pour les pénalités :
+\interfootnotelinepenalty=150 %note de bas de page
+\widowpenalty=150 %% veuves et orphelines
+\clubpenalty=150 
+
+%Pour la longueur de l'indentation des paragraphes
+\setlength{\parindent}{15mm}
+
+
+
+%%%% debut macro pour enlever le nom chapitre %%%%
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \interlinepenalty\@M
+    \ifnum \c@secnumdepth >\m@ne
+        \Huge\bfseries \thechapter\quad
+    \fi
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+%%%% fin macro %%%%
+
+%Couverture 
+% Le plus simple est d'importer un pdf s'il y a une couverture type a respecter
+%\includepdf[pages=1,noautoscale=false]{premiere_page.pdf} 
+\title
+{
+	\normalsize{DESS Xxxxx xxxx xxxxx\\
+	Université de Xxxx Xxxxxx\\
+	2004-2005}\\
+	\vspace{15mm}
+	\Huge{Titre du rapport de stage}
+}
+\author{Nom Auteur\\
+	\vspace{45mm}
+}
+
+\date{	
+	\normalsize{Lieu du stage\\
+	Adresse du stage\\
+	Ville du stage\\ 
+	\vspace{5mm}	
+	Directeur de recherche : M. DUPONT \\
+	Rapporteur universitaire : Mme DUPUIS
+	}
+}
+
+\begin{document}
+
+\maketitle
+
+\input{Remerciements}
+%\clearpage
+
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+
+% Pour avoir un interligne de 1,5
+\begin{onehalfspace}
+
+\input{Intro}
+
+%samples chapter
+\input{Partie1}
+
+
+\input{Conclusion}
+
+% Pour finir l'interligne de 1,5
+\end{onehalfspace}
+
+%----------------------------------------
+% Pour la bibliographie
+%----------------------------------------
+% Citer tous les ouvrages/références
+% pour ajouter des references : ouvrir biblio.bib
+%nocite permet d'ajouter de la biblio sans avoir aciter 
+%quelquechose dans le document
+% si quelquechose a citer voir \cite
+\nocite{MotClef1}
+\nocite{MotClef2}
+\nocite{MotClef3}
+\nocite{MotClef4}
+\nocite{MotClef5}
+% Trier par ordre d'apparition
+%bibliographystyle{unsrt}
+% Pour le style de la biblio
+\bibliographystyle{plain}
+\bibliography{biblio}
+\printindex
+%exemples d'annexes
+\appendix
+\input{Appendix_A}
+\input{Appendix_B}
+\input{Appendix_C}
+
+% 4eme de couverture
+%\includepdf[pages=1,noautoscale=false]{derniere_page.pdf}
+\end{document}
