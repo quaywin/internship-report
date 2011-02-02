@@ -1,0 +1,24 @@
+Web issues.
+
+ 
+To understand the issues that arises when developping a web site or web application, let me first remind you how a 
+user (we will call him a client) can see a web page. First, the client requests a web page located on a web server. The function of this web server is 
+to deliver the requested web page to the client. This means delivery of an HTML content along with additional content, 
+such as images, stylesheets and javascripts. The client's web browser application then processes the content and displays it for the user. 
+While the server will always deliver the same content for the same requested page, the user might see a different output. 
+The reason is that there are more than one web browser software application existing, and while the output usually looks the same on any of them, the process behind 
+displaying and interpreting the content is different. While Html content is quite processed in the same way among every browsers, issues arises with interpretation of
+javascript and stylsheets. For example, Firefox can understand the css property moz-border-radius while Google Chrome and Internet Explorer will not. Also, Firefox 
+will not understand the Javascript Object window.event while Google Chrome and Internet Explorer will.
+While you can develop your server side part of the application in one language and not worry about its ability to always deliver the same content, you can't afford to
+develop the client side application for only one browser. This would result in many internet users not to be able to see the content as intended.
+% w3c table showing market share of web browser on the site of the page %
+And as a web development company, that is not an option. (your clients won't like that if you tell them that only 30 % of the internet users will be able to use 
+their website.)
+Web application that behaves the same way in multiple browser are called "cross-browser". 
+My job was of course to make sure that every web content I created was cross-browser (at least for IE7, IE8, Chrome and FF).
+Fortunatly, some tools exists to help you reach that goal.
+1/ Javascript
+jQuery
+2/ Css
+conditionnal comments
