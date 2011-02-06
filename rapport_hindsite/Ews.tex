@@ -21,18 +21,16 @@ So the first step into the project was to brainstorm about the feasibility of th
 \centering
 \includegraphics[width=.55\textwidth]{img/ews_archi_before.png}
 \caption{Basic EWS architecture }
-\label{figure:ews_archi_after}
+\label{figure:ews_archi_before}
 \end{figure}
-
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=.55\textwidth]{img/ews_archi_after.png}
-\caption{EWS architecture rethought for cloud environment}
+\caption{Cloud optimiwed EWS architecture }
 \label{figure:ews_archi_after}
 \end{figure}
 
-To allow scalability, security and future cloud architecture, we decided to split the application into several databases inside the same MySQL server. Inside the same MySQL server the databases can communicate easily with each other. So it allows to decouple these databases.
 \begin{itemize}
 \item a database to store common data (data shared through the application)
 \item a database to manage users and sites
@@ -107,17 +105,18 @@ such as images, stylesheets and JavaScripts.
 \item The client's web browser application then processes the content and displays it for the user.  
 \end{itemize}
 
-\begin{figure}[!l]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.55\textwidth]{img/static.png}
 \caption{Case of a static Html page}
-\label{figure:static page}
+\label{figure:static-page}
 \end{figure}
-\begin{figure}[!r]
+
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.55\textwidth]{img/static.png}
 \caption{Case of a dynamic page (for example a php page)}
-\label{figure:dynamic page}
+\label{figure:dynamic-page}
 \end{figure}
 
 While the server will always deliver the same content for the same requested page, two different users might see two different things on their computer. 
@@ -128,7 +127,7 @@ While you can develop the server side part of the application in one language an
 \centering
 \includegraphics[width=.55\textwidth]{img/browser_statistics.png}
 \caption{Market Share of Web Browser}
-\label{figure:Market Share of Web Browser}
+\label{figure:market-brosers}
 \end{figure}
 And as a web development company, that is even less of an option. (your clients won't like that if you tell them that only 30 of the internet users will be able to use their website.)
 Web application that behaves the same way in multiple browser are called "cross-browser". 
@@ -146,7 +145,7 @@ Because of all those disparities, people started to build APIs, which would cons
 
 Unlike in JavaScript, there is no API to help you with CSS (mainly because CSS is not a programming language). The huge issues in CSS arises when you want to make it work on Internet explorer. Usually, you are going to develop with Chrome or Firefox (Internet Explorer can be very slow so it can be frustrating to develop on it) where the same CSS is going to work on each other. It might even work in Internet Explorer 8 (with some really little adjustment on precise cases). But most of the time, you are going to have to do some adjustments so that it works on Internet Explorer 7. Those adjustment might be to just rethink the way of styling an element so that the same CSS will work on IE7 or completely tweaking the CSS just for Internet Explorer.
 The last is called "CSS hacking". And fortunately, probably because Microsoft knows that his CSS handling is not that good, it introduced what is called conditional comments. It looks like a simple html comments in the html content, but IE knows it is aimed at him and can process it to add a specific Stylesheet. Other browsers will just ignore it, as it is a mere comment for them. (cg example html + speak about prefix * \_ etc.). 
-\begin{figure}[!r]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=.55\textwidth]{img/comments.png}
 \caption{Conditional Comment}
