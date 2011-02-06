@@ -1,0 +1,16 @@
+\chapter{The first step at HindSite, Inc. }
+
+\section{First tasks}
+
+\subsection{Easy Web Content}
+
+The first task I was given when arriving at HindSite Interactive was to get acquainted with their main application: Easy Web Content and especially with what is called the Easy Web Content Addons.
+\\ Easy Web Content is a web based software developed by HindSite Interactive. With it, users can easily manage their existing website: adding content, search engine optimizing, duplicate pages, ... Addons are specific complex content you can add to your pages : Photo Gallery, Calendar, Music Player, ... As the implementation of these addons was quite new in the software, some bugs were still existing. So I had to get familiar with the way they were built, to be able to resolve those bugs so that these addons could go live on the application. Previous interns had made a lot of documentation on them. It took me a week to read all the documentation and understand how they were built.
+\\ Also, the source code and user database information of these addons are located in another server than the one Easy Web Content runs in. So I also had to get familiar with the way the Easy Web Content server would communicate with the Addon Server to retrieve the information needed to handle these addons. That was pretty interesting as the communication uses a protocol I had never used before : SOAP \footnote{Simple Object Access Protocol}. % def of Soap.
+\\As it is XML based, SOAP is independent to whatever platform or programming language you are using. As an example, Easy Web Content server is using Java whereas the Addon server is using Php. Still, they are able to understand and handle the request/response that transit both ways.
+The server that needs to retrieve the information is called a Soap Client. The one that provides the information is called the Soap Server. It provides what is called a Web Service. Any server around the world can retrieve the same information using this Web Service.
+\\ When I was fully acquainted with this protocol, I was able to create a new feature for Easy Web Content users: the creation of demo accounts. Users where now able to create demo accounts on Easy Web Site with the possibility to view addon presets so that they could get an overview of what they could do if they signed up for the complete version.
+
+
+\subsection{A client project: Sencore}
+After working on Easy Web Content, I was given the task to assist another developer in a huge client project for the company Sencore. The project's aim was to give the client a fully customized CMS\footnote{Content Management System} in which they could manage pretty much every aspect of their website, from customers requests, job applications to website content and product description. This project was my first real experience in Php/Mysql, and I was really excited about that.
