@@ -42,7 +42,7 @@ To allow better security, at the creation of a new site database the system crea
 % databases architecture illustration
 After several meetings we decided to adopt a system that stores the informations of each pages created by the editor into a database. To allow less process time, the user will be able to publish his pages, which will result in the system creating plain php files containing all the information of the page.
 
-\section Framework
+\section{Framework}
 
 To facilitate the development and maintainability of the application, we had to code using a Model View Controller pattern. The first thing that came to mind to adopt this pattern was to use a Php Framework. Many of them exist on the internet, for example Zend, Symphony, CakePhp, ... After looking at some of them, especially Zend, we figured out that using such a Framework would mean learning it. And it could be weeks before we were comfortable with it, let alone the fact that every six month new interns would come and would probably have to learn it too. The best solution for us considering the deadline we had on the project was to create our own MVC Framework. It took us less than a week to build the core features of this framework. Building our own framework has some advantages:
 \begin{itemize}
@@ -76,6 +76,27 @@ Here is the tree of the framework:
 |   +---js
 |   index.php
 \end{verbatim}
+
+\section{User Experience}
+
+The main part of an application aimed at having people sign up for the services you provide is the user experience. If in the first few minutes of using the application the user feels lost or does not know how to perform the tasks he wants to, he is not going to sign up and will leave to the competitors. There are so many famous site builders in the Internet that we will surely not be the primary target of users. So when a user lands on our application, we need to keep him and have him sign up. So from the start of the development, we made a priority of providing the user with an easy interface, along with intuitive functionalities.
+We had meetings once in a week to see which directions to take in terms of usability. Concerning the graphic user interface, the work was done by designers and we then had to convert their ideas to html and css code. The part that concerned us web developers was the intuitive functionalities. And in web language, this means programming in JavaScript / AJAX.
+
+\subsection{JavaScript}
+
+JavaScript is a client side programming language. It is interpreted by the user's web browser and runs on his computer, with no connection to the server whatsoever. When a web page is served to the user, JavaScript enables to extend the user experience. Some of the interesting functionalities of JavaScript are:
+\begin{itemize}
+\item Binding events to the mouse or keyboard of the user
+\item Changing the way a page look
+\item Handing the DOM (Document Object Model) which means Create, Read, Update or Delete the html content of the page.
+\end{itemize}
+One of the main user experience we wanted to provide to the user was enabling him to easily add or manage the content of its pages. A very powerful and intuitive way to achieve that goal is to have a Drag And Drop functionality. Basically what it does is bind an event to the user's mouse: when he clicks on an element, he can drag it and the element will follow the mouse position. When he releases the mouse, the element is placed according the the current mouse position. This is undoubtedly the most intuitive way to update the content of a page, as users are used to often drag and dropping in their Operating System. 
+\\But usually, the easier and more intuitive it will be for the user, the more difficult it is going to be to implement it. Drag And Dropping does not avoid this rule. Hopefully, many tools (understand JavaScript libraries) exist on the web to perform this task. After testing all the most powerful tools existing, we choose to go with the one called Scriptaculous. By calling a simple method, Scriptaculous binds all the events needed to perform the drag and drop and adds callback functions for every of them. It is very powerful as it enabled you to run a script when beginning the drag and drop, when actually moving the element and when the element is dropped. 
+\\But if JavaScript runs on the client's computer with no communication with the server, how can we save the result of the drag and drop so that when the user reloads the page, he will see what was intended ? The way to perform that is called Ajax.
+
+\subsection{Ajax}
+
+Ajax stands for Asynchronous JavaScript and XML. Nowadays, it is one of the most powerful tool to enable client/server communication without impacting the user. Let's take the example of the drag and drop. Before Ajax existed, to save the newly positioned element, we had to send a synchronous request to the server upon dropping the element. Basically that means the page the user was currently on would have to be refreshed in order for the user to see the changes. That could frustrate the user a lot as the page would have to be fully regenerated and resent to the user, and that process would take tenth of seconds, during which the user was not able to perform any task. Now, with Ajax, this does not have to happen this way anymore. Ajax permits requests to be sent to the server in an asynchronous way, which means that the page will not be refreshed and the user will not have to wait for the response to perform other actions. This is very powerful as it enables most of the scripting to be done server side and just called via Ajax, thus not preventing the user to perform other tasks. This gives a very good user experience as the user will not even notice that there was communication with the server.
 
 \section{Web issues}
 
