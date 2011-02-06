@@ -1,21 +1,20 @@
 \section{Easy Web Content Site builder.}
 
 We call it EWS. The main project we are working on is a new online site builder. This project intend to complete the existing Easy Web Content service.
-%descriptopn of EWC
+%descriptopn of EWS
 Basically The site builder will make extensive usage of ajax. The main directions of the project are
 \begin{itemize}
 \item Be the most simple in terms of user experience
-\item propose simple to create but adapted styles and easy to customise
-\item does not have the drawbacks of the concurrence
-\item have the advantages of the concurrence
-\item be scalable
-\item be securized
-\item target users : 2/3 of them have no HTML/CSS knowledge
+\item Propose simple to create but adapted styles and easy to customise
+\item Do not have the drawbacks of the competitors
+\item Have the advantages of the competitors
+\item Be scalable
+\item Be secure
+\item Target users : 2/3 of them have no HTML/CSS knowledge
 \end{itemize}
-
 %show a sample of the concurrence
 
-So the first stpe into the project was to brainstorm about the feasibility of the software. We did several research of was already existed in the market. Writing downs the strengths and weaknesses of the most famous site builders. At the same time we specified the structure of the information system which would allow the site builder to be scalable, and modular. We try to figure what was the best choices between achitecture and programmation languages. After a week we decided to adopt PHP MySQL and Javascript instead of j2EE , GWT. The developers into the team are more familiar with these technologies. So we designed a relational model for the MySQL database that matched our first expectations in term of page creation and page organisation.
+So the first step into the project was to brainstorm about the feasibility of the software. We did several research of what was already existing in the market. Writing dows the strengths and weaknesses of the most famous site builders. At the same time we specified the structure of the information system which would allow the site builder to be scalable, and modular. We try to figure what was the best choices between architecture and programming languages. After a week we decided to adopt PHP MySQL and Javascript instead of J2EE , GWT. The developers into the team are more familiar with these technologies. So we designed a relational model for the MySQL database that matched our first expectations in term of page creation and page organisation.
 %several illustrations of the models evolution
 
 \begin{figure}[!ht]
@@ -29,18 +28,17 @@ So the first stpe into the project was to brainstorm about the feasibility of th
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=.55\textwidth]{img/ews_archi_after.png}
-\caption{EWS architecture rethink for cloud environment}
+\caption{EWS architecture rethought for cloud environment}
 \label{figure:ews_archi_after}
 \end{figure}
 
-
-To allow scalability security and future cloud architecture, we decided to split the application into several databases inside the same MySQL server. Inside the same MySQL server the databases can communicate easily with each other. So it allows to decouple these databases.
+To allow scalability, security and future cloud architecture, we decided to split the application into several databases inside the same MySQL server. Inside the same MySQL server the databases can communicate easily with each other. So it allows to decouple these databases.
 \begin{itemize}
-\item a database to store common data
+\item a database to store common data (data shared through the application)
 \item a database to manage users and sites
 \item one database per site 
 \end{itemize}
-To allow better security, at the creation of a new site database ze create a specific MySQL user for this database which have specific permissisons only on that database. It can acces common database data thru VIEWS.
+To allow better security, at the creation of a new site database the system creates a specific MySQL user for this database which have specific permissions only on that database. It can access common database data thru VIEWS.
 % databases architecture illustration
-After several meetings we decided to adopt a system that stores the informations of each pages created by the editor into a datababase.And then when the user decides he will publish the pages that are converted in plain php or html pages.
+After several meetings we decided to adopt a system that stores the informations of each pages created by the editor into a database. To allow less process time, the user will be able to publish his pages, which will result in the system creating plain php files containing all the information of the page.
 
