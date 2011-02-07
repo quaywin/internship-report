@@ -1,8 +1,10 @@
 \chapter{Productivity tools}
-As we we begin the development of the Easy Web Content Site Builder from scratch, it gave us the opportunity to set-up a bunch of productivity tools. These tool are about automatize tasks, enhance code quality, debug, teamwork, documentation.
+As we we began the development of the Easy Web Content Site Builder from scratch, it gave us the opportunity to set-up a bunch of productivity tools. These tools are about automatize tasks, enhance code quality, debug, teamwork, documentation.
+
+None of the following tools were implemented before I arrived in Hindsite Interactive. 
 \section{Pear}
 
-PEAR is a framework and distribution system for reusable PHP components. It allows to easily install, remove and update php libraries and packages by using simple command line.
+PEAR is a framework and distribution system for reusable PHP components. It allows to easily install, remove and update PHP libraries and packages by using simple command line.
 \\
 
 \lstset{language=bash}
@@ -13,8 +15,7 @@ C:\...>pear install --alldeps channelname/packagename
 
 \section{Phing}
 
-To work more efficently automatic build task could be used to improve productivity. Phing is a tool written in PHP. It is very similar to famous ANT.
-Phing is a build tool. A phing build task has been set to automatize js/css minification with YUI Compress.
+To work more efficently, we implemented automatic build task tools . Phing is a build tool written in PHP. It is very similar to famous ANT. Phing build tasks have been set to automatize js/css minification with YUI Compress.
 Right now we can use it to automate deployment and development.
 \begin{itemize}
 \item automatic js / css minify for release
@@ -31,7 +32,7 @@ C:\...>pear channel-discover channelname
 C:\...>pear install --alldeps channelname/packagename
 \end{lstlisting}
 
-A build is configured with an xml file : build.xml. It allows to program automated tasks called targets. Target can be combined and ordered.
+The build is configured with an xml file : build.xml. It allows to program automated tasks called targets. Targest can be combined and ordered.
 Obfuscate javascript or css file would have been a very repetitive and boring task to do manually. This tool allows to keep code unobfuscated for development environement (easy to debug and read), and obfuscated in production environment (lighter, faster and harder to read).
 
 \lstset{language=Ant}
@@ -68,8 +69,6 @@ Obfuscate javascript or css file would have been a very repetitive and boring ta
 </project>
 \end{lstlisting}
 
-
-
 \section{Subversion}
 
 Subversion is a version control system. It allows to keep track to modifications of files revision after revision. A system like this is very important to use in a team environment. For several reasons.
@@ -87,17 +86,99 @@ If a bug is introduced, the developer can check what were the modifications in w
 \label{figure:diff}
 \end{figure}
 
-- compare sources between different revisions
-- team work work on the very same files / not overwrites someone elses modifications
+\paragraph*{Team-work}
+When working in on a project with several developers, it is very important to to work on the same versions of the project's file. Subversion stores the project in a repository from where the developers download incrementally the lasted modifications of files. So, only new of modified files are updated. Two developers may work on the same file at the same time because Subversion possess file merge and conflict resolution capabilities. It avoid to overwrite a file that another developer would have modified.
 
 \section{Code documentation}
-
+Our applications and precisely the Site Builder project need to be maintenable and scalable. 
 \subsection{PHPDoc}
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.55\textwidth]{img/phpdoc.png}
+\caption{Generated PHP Documentation from PHP code}
+\label{figure:phpdoc-web}
+\end{figure}
+
+\lstset{language=PHP}
+\begin{lstlisting}[label=phpdoc-code,caption=PHP documentation in a PHP class]
+
+/**
+ * 
+ * Controller. 
+ * The controller receives input and initiates a response by making calls on model objects.
+ * A controller accepts input from the user and instructs the model and viewport to perform
+ * actions based on that input.
+ * @author Marc Bouvier <marc@hindsiteinc.com> , Thomas Louis <thomas@hindsiteinc.com>
+ * @package	EWS
+ */
+class Controller implements IController{
+	
+	/**
+	*	Boolean remains to false if no error occured, else set to true
+	*	@var boolean
+	*/
+	protected static $error = false;
+
+	/**
+	 * 
+	 * Constructor for the class Controller
+	 * @param unknown_type $controllerName
+	 * @param unknown_type $action
+	 */
+	public function __construct($controllerName, $action, $queryString=array()) 		{
+		//some code
+	}
+\end{lstlisting}
+
 
 \subsection{JSDoc}
 
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.55\textwidth]{img/jsdoc.png}
+\caption{Generated Javascript Documentation from Javascript code}
+\label{figure:jsdoc-web}
+\end{figure}
+
+\lstset{language=Javascript}
+\begin{lstlisting}[label=jsdoc-code,caption=Javascript documentation in a Javascript class]
+/**
+*	@fileOverview Contains the cssEditor class (included in the page/design view)
+*	@author Thomas LOUIS <a href="mailto:thomas@hindsiteinc.com">mail</a>
+*/
+
+/**
+*	@class Base class to set the css string and elements that the user wants to modify
+*	@author Thomas LOUIS <a href="mailto:thomas@hindsiteinc.com">mail</a>
+*/
+cssEditor = function(target)
+{
+	/**
+	*	Target of the click (it is a jQuery Object)
+	*	@type Object
+	*/
+	this.target = target;
+
+/**
+*	Sets the inline property so that the user can see right away the changes applied to his page
+*	@param {String} cssProperty The css property to be applied
+*	@param {String} cssValue The property value
+*	@todo Look and change the function
+*/
+cssEditor.prototype.setCss = function(cssProperty,cssValue)
+{
+	// some code		
+}
+
+\end{lstlisting}
+
 \section{Netbeans}
+
+Since we began to have more needs 
+
 -code autocompletion
 - code navigation
 - code syntax recognition
