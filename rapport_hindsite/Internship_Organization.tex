@@ -1,5 +1,47 @@
 \chapter{Internship Organization}
 
+\section{Objectives of the internship}
+
+
+%The initial internship subject submitted by the company was “”.
+%In this section I will try to detail the real objectives of my final degree project.
+%Firstly the main goal was to continue the Easy Web Content Add-ons project
+%initiated a few years ago at Hindsite Interactive.
+%Previous interns started to develop a few number of add-ons using the Adobe
+%Flash technology. At the time I started my internship there were a Photo
+%Gallery, a Music Player and a NewsTicker. All these three add-ons were
+%administrated in what we call the “admin area”, an interface to customize, edit,
+%populate and publish the Flash add-ons.
+%This leads to the first task accomplished during my internship, the complete
+%realization of a new Flash add-on compatible with the existing manager, the
+%“Flash Maker”.
+%
+%Flash-maker add-on
+%
+%This add-on could be compared to a slide-show: a client/user can create
+%different clips with their own image and texts (a title and a description) and use
+%animated effects to transition between many clips. This add-on could for
+%example be used as a company or a product presentation on the homepage of
+%a client website.
+%My objective was to create this add-on using the Flash technology and Action
+%Script 3.0. The client data has to be stored in a database and the images are
+%hosted on Hindsite’s servers. The add-on needs to be fully customizable by
+%the client using the existing admin area for flash add-ons. I had to observe the
+%specifications regarding the elements that can be customized by the user.
+%
+%The next add-on that I have to take care of is a calendar with the possibility to
+%add events. We made not to use Flash technology to create this add-on but
+%this decision also implied to create a new administration structure for the non-
+%flash add-on (commonly called Html add-ons).
+%
+%WEINZAEPFEL Pierre
+%
+%The development of the admin section as well as the calendar was the next
+%objectives of my internship.
+
+
+\section{Agenda of the Internship}
+
 \begin{table}[!ht]
 	\caption{\label{tableau:agenda}Internship Agenda}
 	\begin{tabular}{ | l | p{12cm} | }
@@ -14,7 +56,134 @@
 		Week 12 to 16	&	Application of web design on the tools of the Site builder. Database development, drag and drop. User registration. Database automated scripts.	\\	\hline
 		Week 17	to 18&	Work on Site Builder's widget features. Implementation of Video player feature on Sencore project. Work on secured payment form on A2LA project. Begin to communicate with clients.\\	\hline
 		Week 19	to 22 &	Work on a mailling form for the client Advanced Centrifugals coupled with a backend. Bug correction on Sencore and Sentara projects. Work on the Site Builder in parallel\\	\hline
-		Week 23	&	Work on Pylon Project\\	\hline
-		Week 24	&	\\	\hline
+		Week 23	to 24&	Work on Pylon Project\\	\hline
 	\end{tabular}
 \end{table}
+
+\section{Methodological aspect}
+
+%The different steps of a website development at Hindsite are:
+%
+%- Specification of the needs
+%This step is a discussion with the customer to understand his expectations
+%and needs as well as establish a quote for the job and determine the duration
+%of the development.
+%This phase will for instance estimate the number of pages, the design work (if
+%the users wants Flash animations, unique fonts, a new logo, etc.), the degree
+%of administration possibilities (static HTML, partially manageable, or a full
+%CMS).
+%
+%This step is supervised by Mr. Taei, who consults designers or developers to
+%get an accurate idea of the cost, time and possibilities.
+%
+%- Presentation of one or many prototype
+%The next step consists of a presentation of a static design of the future web
+%site layout. Many different designs can be showed to the client to allow him to
+%choose the one that better fits his expectations.
+%The design is done by the design team, most of the time by Mr. Kheradmand.
+%
+%- Conversion of the design to HTML and CSS
+%This phase is made up of the slicing of design elements (backgrounds,
+%images, titles, etc.) to images and of the conversion to a static design into the
+%HTML/CSS website. All the text content is static at this phase.
+%
+%WEINZAEPFEL Pierre
+%
+%This step is usually affected to Mrs. Hang Le, but I happen to give a hand for
+%some CSS tricks or JavaScript animations/modules.
+%
+%- The development, add the Content Management System.
+%During the next phase, the dynamic pages are written, all the pages which
+%content need to be editable by the client are integrated in the administration
+%area. This is the phase that most concerns me and other coworkers of the
+%development team.
+%
+%- Presentation and Validation
+%The website (at this moment hosted on Hindsite’s servers) is presented to the
+%client for validation. We give him an access to the administration area to test
+%the different functionalities and we provide him explanation of how to use it if
+%necessary.
+%
+%- Deployment
+%When the website is approved, we move on to the deployment on either client
+%hosting server or our server with the definitive DNS redirection. We also use a
+%clean database from all the tests.
+
+\section{Technical aspect}
+
+%ActionScript 3 is a programming language based on the ECMAScript
+%standard and is mainly used for website development or software based on
+%Adobe Flash Player. AS3 allows communication of the application and the
+%server or a database. Powered by Macromedia and then Adobe, ActionScript
+%actually allows to developer Rich Internet Applications and online games.
+%
+%PHP is an open source script languages, used to produce dynamic web pages
+%through an HTTP server. PHP is an imperative language and supports Object
+%Oriented programming since the version 5. For the Easy Web Content
+%modules we use PHP5 but for website development, it can depend of the
+%version already in place.
+%
+%JavaScript is a script language typically used to enable access to
+%computational objects within a host environment. It is used as a client-side
+%language for the development of dynamic Internet websites.
+%
+%WEINZAEPFEL Pierre
+%
+%jQuery
+%A fast, concise, library that simplifies how to traverse HTML documents,
+%handle events, perform animations, and add AJAX.
+%
+%Smarty is a library that allows the creation of HTML templates that are imported and
+%used in PHP scripts to ease the process of web page design.
+%
+%One of Smartys primary design goals is to facilitate the separation of application
+%code from presentation.
+%Typically, the application template containing the design is separated from the PHP
+%code.
+%
+%I used Smarty as a template engine to generate the templates pages of the
+%administration page of the add-on.
+
+\section{Tools}
+
+%a. Astah Community
+%
+%I have been using Astah Community -previously called Jude Community- to
+%design my Use Case, Class, Sequence, etc. diagrams.
+%This software takes place at the beginning of the development cycle, in
+%analyze and conception phases.
+%
+%b. FlashDevelop
+%
+%FlashDevelop is a free and open source code editor for Action Script 2.0 and
+%3.0.
+%It has a development environment visually similar to that of Eclipse. It has a
+%collapsible file explorer that makes projects easier to navigate.
+%In my opinion FlashDevelop is more user-friendly and easy to use than the
+%Action Script editor integrated into Adobe Flash Professional. Flash Develop is
+%only used to edit the code, there is no timeline visualization, image browser or
+%object (buttons, movie clips) library.
+%FlashDevelop is linked to Flash Professional so that I can directly test
+%changes in Flash Pro.
+%
+%WEINZAEPFEL Pierre
+%
+%This software was used in the implantation (code writing) step in the software
+%development cycle.
+%
+%c. Adobe Flash CS4
+%
+%It is a multimedia platform developed by Adobe that enables to create
+%interactive content for web pages like animations, advertisements, games, etc.
+%
+%d. Dreamweaver CS4
+%It’s a website editor also by Adobe that offers much functionality to improve
+%development. It supports a lot of web technologies (XHTML, PHP, CSS, and
+%JavaScript). It is also possible to use subversion directly inside the navigation
+%panel.
+%
+%e. Vizzy
+%
+%Vizzy is a free software for Flash development, this tool allows seeing all
+%traces (display a result to the output window) and debugging content of Flash
+%files (.swf)
