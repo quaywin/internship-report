@@ -2,7 +2,7 @@
 
 The Easy Web Content Site Builder, also called EWS, is the main project we are working. This project intends to complete the existing Easy Web Content service by enabling the user to create a new website from scratch.
 %descriptopn of EWS
-Basically The site builder will make extensive usage of ajax. The main directions of the project are
+Basically The site builder will make extensive usage of Ajax\footnote{Asynchronous Javascript and XML}. The main directions of the project are
 \begin{itemize}
 \item Be the most simple in terms of user experience
 \item Propose simple to create but adapted styles and easy to customise
@@ -14,7 +14,38 @@ Basically The site builder will make extensive usage of ajax. The main direction
 \end{itemize}
 %show a sample of the concurrence
 
-So the first step into the project was to brainstorm about the feasibility of the software. We did several research of what was already existing in the market. Writing dows the strengths and weaknesses of the most famous site builders. At the same time we specified the structure of the information system which would allow the site builder to be scalable, and modular. We try to figure what was the best choices between architecture and programming languages. After a week we decided to adopt PHP MySQL and Javascript instead of J2EE , GWT. The developers into the team are more familiar with these technologies. So we designed a relational model for the MySQL database that matched our first expectations in term of page creation and page organisation.
+The major competitors in the market of site builders are Weebly, Drupalgardens, Basekit and Squarespace.
+Weebly and BaseKit use a drag and drop approach instead of Drupalgardens and Squarespace which is more a blog-like content management system.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.55\textwidth]{img/weebly.png}
+\caption{Weebly}
+\label{figure:weebly}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.55\textwidth]{img/drupal_gardens.png}
+\caption{Drupal Gardens}
+\label{figure:drupal_gardens}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.55\textwidth]{img/basekit.png}
+\caption{BaseKit}
+\label{figure:basekit}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.55\textwidth]{img/squarespace.png}
+\caption{Squarespace}
+\label{figure:squarespace}
+\end{figure}
+
+So the first step into the project was to brainstorm about the feasibility of the software. We did several research of what was already existing in the market. Writing down the strengths and weaknesses of the most famous site builders. At the same time we specified the structure of the information system which would allow the site builder to be scalable, and modular. We try to figure what was the best choices between architecture and programming languages. After a week we decided to adopt PHP MySQL and Javascript instead of J2EE , GWT. The developers into the team are more familiar with these technologies. So we designed a relational model for the MySQL database that matched our first expectations in term of page creation and page organisation.
 %several illustrations of the models evolution
 
 \begin{figure}[!ht]
