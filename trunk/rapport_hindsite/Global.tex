@@ -1,9 +1,11 @@
-\documentclass[12pt,a4paper,utf8x]{report}
+\documentclass[12pt,a4paper,utf8x,twoside,openright]{report}
 \usepackage [english]{babel}
 
 % Pour pouvoir utiliser 
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
+
+
 
 \usepackage{pifont}
 \newcommand{\tick}{\ding{51}} % to write ticks
@@ -13,13 +15,15 @@
 \usepackage{pdfpages} % to include PDF pages as pictures (1st and last page)
 
 \usepackage{url} % Pour avoir de belles url
-\usepackage {geometry}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 
 \usepackage{wrapfig}
 \usepackage{subfig}
 
 \usepackage{color}
 \usepackage{xcolor}
+
+\usepackage{float}
 
 % Pour mettre du code source
 \usepackage {listings}
@@ -70,8 +74,7 @@
          showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
  }
  
- \lstloadlanguages{XML, HTML,Java,PHP,SQL,JavaScript,bash,Ant}
-
+\lstloadlanguages{XML, HTML,Java,PHP,SQL,JavaScript,bash,Ant}
 
 % Pour pouvoir faire plusieurs colonnes
 \usepackage {multicol}
@@ -81,21 +84,11 @@
 
 % Pour les entetes de page
 \usepackage{fancyhdr} % Header and footnotes
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-\fancyhf{} \fancyhead[LE,RO]{\bfseries\thepage}
-\fancyhead[LO]{\bfseries\rightmark}
-\fancyhead[RE]{\bfseries\leftmark}
-\renewcommand{\headrulewidth}{0.5pt}
-\addtolength{\headheight}{0.5pt}
-\addtolength{\headwidth}{100pt }
-\renewcommand{\footrulewidth}{0pt}
+\pagestyle{plain}
+
 
 % Pour l'interligne de 1.5
 \usepackage {setspace}
-% Pour les marges de la page
-\geometry{a4paper, top=2.5cm, bottom=3.5cm, left=1.5cm, right=1.5cm, marginparwidth=1.2cm}
 
 \parskip=5pt %% distance entre § (paragraphe)
 \sloppy %% respecter toujours la marge de droite 
@@ -108,12 +101,10 @@
 %Pour la longueur de l'indentation des paragraphes
 \setlength{\parindent}{15mm}
 
-
-
 %%%% debut macro pour enlever le nom chapitre %%%%
 \makeatletter
 \def\@makechapterhead#1{%
-  \vspace*{50\p@}%
+  \vspace*{10\p@}%
   {\parindent \z@ \raggedright \normalfont
     \interlinepenalty\@M
     \ifnum \c@secnumdepth >\m@ne
@@ -124,7 +115,7 @@
   }}
 
 \def\@makeschapterhead#1{%
-  \vspace*{50\p@}%
+  \vspace*{10\p@}%
   {\parindent \z@ \raggedright
     \normalfont
     \interlinepenalty\@M
@@ -134,18 +125,18 @@
 \makeatother
 %%%% fin macro %%%%
 
+\setlength{\skip\footins}{1cm}
+
 %Couverture 
 % Le plus simple est d'importer un pdf s'il y a une couverture type a respecter
 %\includepdf[pages=1,noautoscale=false]{premiere_page.pdf} 
 \title
 {
-	\normalsize{DESS Xxxxx xxxx xxxxx\\
-	Université de Xxxx Xxxxxx\\
-	2004-2005}\\
+	\normalsize{Graduation Project}\\Promo 2010\\
 	\vspace{15mm}
-	\Huge{Titre du rapport de stage}
+	\Huge{Junior Web Developer}
 }
-\author{Nom Auteur\\
+\author{Thomas LOUIS\\
 	\vspace{45mm}
 }
 
@@ -168,7 +159,7 @@
 
 \tableofcontents
 \listoffigures
-\listoftables
+%\listoftables
 \clearpage
 
 % Pour avoir un interligne de 1,5
@@ -183,7 +174,7 @@
 %projects
 
 \input{Company_Presentation}
-\input{Internship_Organization}
+\input{Part1}
 \input{Ews}
 \input{Productivity_Tools}
 \input{Conclusion}

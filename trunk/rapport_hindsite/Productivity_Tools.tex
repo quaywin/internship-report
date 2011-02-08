@@ -14,7 +14,7 @@ C:\...>pear install --alldeps channelname/packagename
 
 \section{Phing}
 
-To work more efficently, we implemented automatic build task tools . Phing is a build tool written in PHP. It is very similar to famous ANT. Phing build tasks have been set to automatize js/css minification with YUI Compress.
+To work more efficiently, we implemented automatic build task tools . Phing is a build tool written in PHP. It is very similar to the famous ANT. Phing build tasks have been set to automatize js/css minification with the YUI Compress tool.
 Right now we can use it to automate deployment and development.
 \begin{itemize}
 \item automatic js / css minify for release
@@ -31,8 +31,8 @@ C:\...>pear channel-discover channelname
 C:\...>pear install --alldeps channelname/packagename
 \end{lstlisting}
 
-The build is configured with an xml file : build.xml. It allows to program automated tasks called targets. Targest can be combined and ordered.
-Obfuscate javascript or css file would have been a very repetitive and boring task to do manually. This tool allows to keep code unobfuscated for development environement (easy to debug and read), and obfuscated in production environment (lighter, faster and harder to read).
+The build is configured with an xml file : build.xml. It allows to program automated tasks called targets. Targets can be combined and ordered.
+Obfuscate JavaScript or CSS file would have been a very repetitive and boring task to do manually. This tool allows to keep the code non obfuscated for development environment (easy to debug and read), and obfuscated in production environment (lighter, faster and harder to read).
 
 \lstset{language=Ant}
 \begin{lstlisting}[label=phing-build,caption=Example of Phing build.xml]
@@ -70,13 +70,13 @@ Obfuscate javascript or css file would have been a very repetitive and boring ta
 
 \section{Subversion}
 
-Subversion is a version control system. It allows to keep track to modifications of files revision after revision. A system like this is very important to use in a team environment. For several reasons.
+Subversion is a version control system. It allows to keep track on modifications of files revision after revision. A system like this is very important to use in a team environment. For several reasons.
 
 \paragraph*{Critic portions of code}
-When working on important pieces of code the developer is often afraid to introduce bugs of to make the application crash. With a version control system, he can rollback to previous stable version of the code easily. So he can experiment new features with more confidence. 
+When working on important pieces of code the developer is often afraid to introduce bugs or to make the application crash. With a version control system, he can roll-back to previous stable versions of the code easily. So he can experiment new features with more confidence. 
 
 \paragraph*{Debug}
-If a bug is introduced, the developer can check what were the modifications in which files by using a diff tool to compare two revisions of a the same file.
+If a bug is introduced, the developer can check what were the modifications in which files by using a 'diff' tool to compare two revisions of a the same file.
 
 \begin{figure}[!ht]
 \centering
@@ -86,10 +86,12 @@ If a bug is introduced, the developer can check what were the modifications in w
 \end{figure}
 
 \paragraph*{Team-work}
-When working in on a project with several developers, it is very important to to work on the same versions of the project's file. Subversion stores the project in a repository from where the developers download incrementally the lasted modifications of files. So, only new of modified files are updated. Two developers may work on the same file at the same time because Subversion possess file merge and conflict resolution capabilities. It avoid to overwrite a file that another developer would have modified.
+When working in on a project with several developers, it is very important to work on the same versions of the project's file. Subversion stores the project in a repository from where the developers download incrementally the latest modifications of the files. So, only new or modified files are updated. Two developers may work on the same file at the same time because Subversion possess file merge and conflict resolution capabilities. It avoids overwriting a file that another developer would have modified.
 
 \section{Code documentation}
 Our applications and precisely the Site Builder project need to be maintenable and scalable. 
+
+When I arrived at Hindsite Interactive and began working on the Easy Web Content project, I had to read a lot of documentation about the architecture of different components, but there was no document of the actual functions in the code. To understand the code and be able to debug it, having code documentation is a must.
 \subsection{PHPDoc}
 PhpDoc is a PHP framework that allows to generate web documentation of a project by using comments in the PHP code.
 
@@ -176,7 +178,7 @@ cssEditor.prototype.setCss = function(cssProperty,cssValue)
 
 \section{Netbeans}
 
-Since we used Object Oriented Paradigm with PHP we had more needs of tools 
+Since we used Object Oriented Programming with PHP we had more needs of tools 
 to write the code. Especially an IDE \footnote{Integrated Development Environment}.
 
 \begin{itemize}
@@ -190,7 +192,8 @@ to write the code. Especially an IDE \footnote{Integrated Development Environmen
 \section{Mantis}
 Hindsite Interactive uses a lot Google documents to track tasks and issues. This allows to work on the same documents with other people of the team. The problem of this system is that it is not very efficient to manage tasks and bugs. It is like you track bugs in a Word document.
 
-We have set up  a bug tracker for internal use called Mantis it allows fast bug reporting. It allows prioritization, importance management, status of the tasks. It works for mono or multi projects environments.
+We have set up a bug tracker for internal use called Mantis it allows fast bug reporting. It allows Prioritization, importance management ... and assignment of issues to resolve. This allows everyone to keep track of the specific tasks they need to accomplish, and the bugs they need to resolve.
+
 
 \begin{figure}[!ht]
 \centering
