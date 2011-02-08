@@ -5,7 +5,6 @@ None of the following tools were implemented before I arrived in Hindsite Intera
 \section{Pear}
 
 PEAR is a framework and distribution system for reusable PHP components. It allows to easily install, remove and update PHP libraries and packages by using simple command line.
-\\
 
 \lstset{language=bash}
 \begin{lstlisting}[label=pear-install,caption=Installation of pear packages]
@@ -92,7 +91,7 @@ When working in on a project with several developers, it is very important to to
 \section{Code documentation}
 Our applications and precisely the Site Builder project need to be maintenable and scalable. 
 \subsection{PHPDoc}
-
+PhpDoc is a PHP framework that allows to generate web documentation of a project by using comments in the PHP code.
 
 \begin{figure}[!ht]
 \centering
@@ -134,7 +133,7 @@ class Controller implements IController{
 
 
 \subsection{JSDoc}
-
+JsDoc is a Javascript framework that allows to generate web documentation of a project by using comments in the Javascript code.
 
 \begin{figure}[!ht]
 \centering
@@ -189,9 +188,15 @@ to write the code. Especially an IDE \footnote{Integrated Development Environmen
 
 
 \section{Mantis}
-Hindside Interactive uses a lot Google documents to track tasks and issues. This allows to work on the same documents with other people of the team. The problem of this system is that it is not very efficient to manage tasks and bugs. It is like you track bugs in a Word document.
+Hindsite Interactive uses a lot Google documents to track tasks and issues. This allows to work on the same documents with other people of the team. The problem of this system is that it is not very efficient to manage tasks and bugs. It is like you track bugs in a Word document.
 
-We have set up  a bug tracker for internal use called Mantis it allows fast bug reporting. It allows Prioritization, importance management ...
+We have set up  a bug tracker for internal use called Mantis it allows fast bug reporting. It allows prioritization, importance management, status of the tasks. It works for mono or multi projects environments.
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.85\textwidth]{img/mantis.png}
+\caption{Mantis tasks and issues multi-project view}
+\label{figure:mantis}
+\end{figure}
  
 
