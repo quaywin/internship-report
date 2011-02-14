@@ -215,7 +215,7 @@ At first, this can look like a hard task to accomplish, because you would need t
 
 \subsection{JavaScript}
 
-JavaScript has some big differences between browsers. For example, to attach an event to an element, Firefox and Chrome uses the function addEventListener. Internet Explorer will not understand this function as it uses attachEvent for the same purpose. %(cf Appendix page ## http://www.quirksmode.org/dom/w3c\_CSS.html).
+JavaScript has some big differences between browsers. For example, to attach an event to an element, Firefox and Chrome uses the function addEventListener. Internet Explorer will not understand this function as it uses attachEvent for the same purpose. To see an example of how JavaScript can differ between browsers, refer to the Appendix B
 Also, one of the purpose of JavaScript is being able to handle all the html elements in the web page to increase the user experience on the website. And again, there are some slight differences between every browser.
 
 Because of all those disparities, people started to build APIs, which would considerably reduce the knowledge needed of those disparities to run a cross-browser JavaScript code. On of the most famous is jQuery. Simple, yet powerful, you can find in jQuery all the JavaScript functionalities, encapsulated in cross-browser functions. Ex: instead of having to test if the browser is IE to call the function attachEvent instead of addEventListener, you can just call the jQuery method bind to attach an event to an element. No need to learn the supported functions of each browser, you just need to learn a simple API. jQuery even simplifies some JavaScript functionalities, such as the use of Ajax.
