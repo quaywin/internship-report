@@ -99,7 +99,10 @@
 % Pour les marges de la page
 %\geometry{a4paper, top=2.5cm, bottom=3.5cm, left=1.5cm, right=1.5cm, marginparwidth=1.2cm}
 
-\parskip=5pt %% distance entre § (paragraphe)
+%for more little space between list items use : \begin{itemize*} instead of \begin{itemize} for compact lists
+\usepackage{mdwlist}
+
+\parskip=7pt %% distance entre § (paragraphe)
 %\sloppy %% respecter toujours la marge de droite 
 
 % Pour les pénalités :
@@ -110,8 +113,8 @@
 %Pour la longueur de l'indentation des paragraphes
 %\setlength{\parindent}{15mm}
 
-
-
+\usepackage[toc,page]{appendix}
+\usepackage{hyperref}
 %%%% debut macro pour enlever le nom chapitre %%%%
 %\makeatletter
 %\def\@makechapterhead#1{%
@@ -139,27 +142,7 @@
 %Couverture 
 % Le plus simple est d'importer un pdf s'il y a une couverture type a respecter
 %\includepdf[pages=1,noautoscale=false]{premiere_page.pdf} 
-\title
-{
-	\normalsize{DESS Xxxxx xxxx xxxxx\\
-	Université de Xxxx Xxxxxx\\
-	2004-2005}\\
-	\vspace{15mm}
-	\Huge{Titre du rapport de stage}
-}
-\author{Nom Auteur\\
-	\vspace{45mm}
-}
 
-\date{	
-	\normalsize{Lieu du stage\\
-	Adresse du stage\\
-	Ville du stage\\ 
-	\vspace{5mm}	
-	Directeur de recherche : M. DUPONT \\
-	Rapporteur universitaire : Mme DUPUIS
-	}
-}
 
 \begin{document}
 \includepdf[pages=1,noautoscale=false]{Couv_rapport_Marc.pdf}
@@ -214,6 +197,8 @@
 \printindex
 %exemples d'annexes
 \appendix
+\part*{Appendix}
+
 \input{Appendix_A}
 %\input{Appendix_B}
 %\input{Appendix_C}

@@ -3,7 +3,7 @@
 The Easy Web Content Site Builder, also called EWS, is the main project we are working. This project intends to complete the existing Easy Web Content service by enabling the user to create a new website from scratch.
 %descriptopn of EWS
 Basically The site builder will make extensive usage of Ajax\footnote{Asynchronous Javascript and XML}. The main directions of the project are
-\begin{itemize}
+\begin{itemize*}
 \item Be the most simple in terms of user experience
 \item Propose simple to create but adapted styles and easy to customise
 \item Do not have the drawbacks of the competitors
@@ -11,14 +11,23 @@ Basically The site builder will make extensive usage of Ajax\footnote{Asynchrono
 \item Be scalable
 \item Be secure
 \item Target users : 2/3 of them have no HTML/CSS knowledge
-\end{itemize}
+\end{itemize*}
 %show a sample of the concurrence
 
-The major competitors\footnote{See Appendix A}  in the market of site builders are Weebly, Drupalgardens, Basekit and Squarespace.
+The major competitors(See Appendix \ref{annexe:ews-competitors})  in the market of site builders are Weebly, Drupalgardens, Basekit and Squarespace.
 Weebly and BaseKit use a drag and drop approach instead of Drupalgardens and Squarespace which is more a blog-like content management system.
 
-So the first step into the project was to brainstorm about the feasibility of the software. We did several research of what was already existing in the market. Writing down the strengths and weaknesses of the most famous site builders. At the same time we specified the structure of the information system which would allow the site builder to be scalable, and modular. We try to figure what was the best choices between architecture and programming languages. After a week we decided to adopt PHP MySQL and Javascript instead of J2EE , GWT. The developers into the team are more familiar with these technologies. So we designed a relational model for the MySQL database that matched our first expectations in term of page creation and page organisation.
-%several illustrations of the models evolution
+So the first step into the project was to brainstorm about the feasibility of the software. We did several research of what was already existing in the market. Writing down the strengths and weaknesses of the most famous site builders. At the same time we specified the structure of the information system which would allow the site builder to be scalable, and modular. We try to figure what was the best choices between architecture and programming languages. After a week we decided to adopt PHP MySQL and Javascript instead of J2EE , GWT. 
+
+The developers into the team are more familiar with these technologies. So we designed a relational model for the MySQL database(\ref{figure:ews_rev_eng_dec} p.\pageref{figure:ews_rev_eng_dec}) that matched our first expectations in term of page creation and page organisation.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.55\textwidth]{img/reverse_eng_15-dec-2010.png}
+\caption{MySQL Database architecture }
+\label{figure:ews_rev_eng_dec}
+\end{figure}
+We also had to design the overall architecture of the server (cf. figure \ref{figure:ews_archi_before} p.\pageref{figure:ews_archi_before}). Then, in order to scale the application to cloud computing, we made changes to the architecture(cf. figure \ref{figure:ews_archi_after} p.\pageref{figure:ews_archi_after}).
+
 
 \begin{figure}[h!]
 \centering
@@ -34,11 +43,11 @@ So the first step into the project was to brainstorm about the feasibility of th
 \label{figure:ews_archi_after}
 \end{figure}
 
-\begin{itemize}
+\begin{itemize*}
 \item a database to store common data (data shared through the application)
 \item a database to manage users and sites
 \item one database per site 
-\end{itemize}
+\end{itemize*}
 
 To allow better security, at the creation of a new site database the system creates a specific MySQL user for this database which have specific permissions only on that database. It can access common database data thru VIEWS.
 % databases architecture illustration
@@ -46,19 +55,21 @@ After several meetings we decided to adopt a system that stores the informations
 
 \section{Framework}
 
-To facilitate the development and maintainability of the application, we had to code using a Model View Controller pattern. The first thing that came to mind to adopt this pattern was to use a Php Framework. Many of them exist on the internet, for example Zend, Symphony, CakePhp, ... After looking at some of them, especially Zend, we figured out that using such a Framework would mean learning it. And it could be weeks before we were comfortable with it, let alone the fact that every six month new interns would come and would probably have to learn it too. The best solution for us considering the deadline we had on the project was to create our own MVC Framework. It took us less than a week to build the core features of this framework. Building our own framework has some advantages:
-\begin{itemize}
+To facilitate the development and maintainability of the application, we had to code using a Model View Controller pattern. The first thing that came to mind to adopt this pattern was to use a Php Framework. Many of them exist on the internet, for example Zend, Symphony, CakePhp, ... 
+
+After looking at some of them, especially Zend, we figured out that using such a Framework would mean learning it. And it could be weeks before we were comfortable with it, let alone the fact that every six month new interns would come and would probably have to learn it too. The best solution for us considering the deadline we had on the project was to create our own MVC Framework. It took us less than a week to build the core features of this framework. Building our own framework has some advantages:
+\begin{itemize*}
 \item In a learning point of view, it is very interesting as it would help us understand some useful mechanism of Php
 \item We would have total control over it and would be able to add features as we need them.
-\end{itemize}
+\end{itemize*}
 
 The way our framework works is pretty simple. It redirect all request to one single entry point (index.php). This entry point would then call the appropriate controller and action. The controller then requests the database given the model we need and then call the appropriate view. This separates easily all 3 parts of the MVC pattern.
 Also, the framework is object-based: 
-\begin{itemize}
+\begin{itemize*}
 \item Each Controller is a Php class that inherits the core controller class. It contains all the functionalities needed to handle a page request, to redirect a page, to get the data sent by the user, ...
 \item Each Model is a Php class that inherits the core model class. It contains all the functionalities to access the database and request it.
 \item Each view is a phtml file in which we print the content of the request.
-\end{itemize}
+\end{itemize*}
 
 Developing an object-oriented application makes it way more scalable and reusable. It is the right way to develop a web application. During my 6 months at HindSite Interactive, I have worked on projects that had not been developed with object-oriented programming, and it was really hard to understand the code and be able to work efficiently with it. 
 
@@ -92,11 +103,11 @@ We had meetings once in a week to see which directions to take in terms of usabi
 \subsection{JavaScript}
 
 JavaScript is a client side programming language. It is interpreted by the user's web browser and runs on his computer, with no connection to the server whatsoever. When a web page is served to the user, JavaScript enables to extend the user experience. Some of the interesting functionalities of JavaScript are:
-\begin{itemize}
+\begin{itemize*}
 \item Binding events to the mouse or keyboard of the user
 \item Changing the way a page look (modifying the css of an element)
 \item Handing the DOM (Document Object Model) which means Create, Read, Update or Delete the html content of the page.
-\end{itemize}
+\end{itemize*}
 
 Here are example on how you can achieve these features :
 \lstset{language=Javascript}
@@ -113,6 +124,7 @@ var div = document.createElement("div");
 div.innerHTML = "Hello World!";
 document.getElementById("parentDiv").appendChild(div);
 \end{lstlisting}
+
 In the first example, we bind a event "onclick" to the object window on javascript. This event will happen when the user clicks on his mouse.
 In the second example, we changed the style of the element with the id "anElement", setting a background color;
 In this last example, we created a new div tag in javascript and added the content "Hello World!" inside. We then appended this element as a child of the element with the id "parentDiv";
@@ -146,24 +158,27 @@ Sortable.create(id,{
 \end{lstlisting}
 
 One of the big advantage of using an API\footnote{Application Programming Interface} like Scriptaculous is that it does not only permit drag and drop, but it provides many tools to handle it in different kind of way. 
-\\For example, in this piece of code, we limited the location on which the element could be dropped with the parameter 'containment'. We also specified that only div tag with the class 'draggable' could be dragged (parameters 'tag' and 'only'). We also allowed element to be dropped in an empty container. we removed all the dragging constraints (meaning the element will be dragged both in x and y axis) and we specified a drag 'handle', which means further restrict the beginning of the drag and drop to an element.
+
+For example, in this piece of code, we limited the location on which the element could be dropped with the parameter 'containment'. We also specified that only div tag with the class 'draggable' could be dragged (parameters 'tag' and 'only'). We also allowed element to be dropped in an empty container. we removed all the dragging constraints (meaning the element will be dragged both in x and y axis) and we specified a drag 'handle', which means further restrict the beginning of the drag and drop to an element.
 
 JavaScript is a language that runs of the client computer. Thus, it does not communicate with the server. So how can we save the result of the drag and drop so that when the user reloads the page, he sees what was intended (the new locations of the elements) ? The way to perform that is called Ajax.
 
 \subsection{Ajax}
 
 Ajax\footnote{Asynchronous JavaScript and XML} is nowadays one of the most powerful tool to enable client/server communication without impacting the user. 
-\\Let's take the example of the drag and drop. Before Ajax existed, to save the newly positioned element, we had to send a synchronous request to the server upon dropping the element. Basically that means the page the user was currently on would have to be refreshed in order for the user to see the changes. That could frustrate the user a lot as the page would have to be fully regenerated and resent to the user, and that process would take tenth of seconds, during which the user was not able to perform any task. 
-\\Now, with Ajax, this does not have to happen this way anymore. Ajax permits requests to be sent to the server in an asynchronous way, which means that the page will not be refreshed and the user will not have to wait for the response to perform other actions. This is very powerful as it enables most of the scripting to be done server side and just called via Ajax, thus not preventing the user to perform other tasks. This gives a very good user experience as the user will not even notice that there was communication with the server.
+
+Let's take the example of the drag and drop. Before Ajax existed, to save the newly positioned element, we had to send a synchronous request to the server upon dropping the element. Basically that means the page the user was currently on would have to be refreshed in order for the user to see the changes. That could frustrate the user a lot as the page would have to be fully regenerated and resent to the user, and that process would take tenth of seconds, during which the user was not able to perform any task. 
+
+Now, with Ajax, this does not have to happen this way anymore. Ajax permits requests to be sent to the server in an asynchronous way, which means that the page will not be refreshed and the user will not have to wait for the response to perform other actions. This is very powerful as it enables most of the scripting to be done server side and just called via Ajax, thus not preventing the user to perform other tasks. This gives a very good user experience as the user will not even notice that there was communication with the server.
 
 \section{Web issues}
 
 To understand the issues that arises when developing a web site or web application, let me first remind you how a user can access a web page.
-\begin{itemize}
+\begin{itemize*}
 \item First, the client (the user's web browser) requests a web page located on a web server. The function of this web server is to deliver the requested web page to the client. This means delivery of an HTML document along with additional content, 
 such as images, stylesheets and JavaScripts.
 \item The client's web browser application then processes the content and displays it for the user.  
-\end{itemize}
+\end{itemize*}
 
 \begin{figure}[!ht]
 \centering
@@ -181,7 +196,9 @@ such as images, stylesheets and JavaScripts.
 
 While the server will always deliver the same content for the same requested page, two different users might see two different things on their computer. 
 The reason is that there are more than one web browser software application existing, and while they try to make it look the same, the process behind the display and interpretation of the content is not. Set aside Html content, which is quite processed in the same way among every browsers, issues arises with interpretation of
-JavaScript and Stylsheets (CSS). For example, Firefox will understand the CSS property moz-border-radius while Google Chrome and Internet Explorer will not. Also, Firefox will not understand the JavaScript Object window.event while Google Chrome and Internet Explorer will. There are dozens of example like these ones.
+JavaScript and Stylsheets (CSS). For example, Firefox will understand the CSS property moz-border-radius while Google Chrome and Internet Explorer will not. 
+
+Also, Firefox will not understand the JavaScript Object window.event while Google Chrome and Internet Explorer will. There are dozens of example like these ones.
 While you can develop the server side part of the application in one language and not worry about its ability to always deliver the same content, you can't afford to develop the client side application for only one browser. This would result in many internet users not to be able to see the content as intended.
 
 \begin{figure}[!ht]
@@ -220,6 +237,3 @@ The last is called "CSS hacking". And fortunately, probably because Microsoft kn
 Another way to tweak the CSS specifically for Internet Explorer is to add a specific prefix to each CSS property you want to be applied only to some Internet Explorer Versions. (prefix * : IE 7 and below,prefix \_: IE6 and below). The downside of this is that it renders the CSS invalid to the W3C specification.
 
 Understanding all that, you can understand why creating a site builder application is even more of a challenge. Indeed, we have to provide the user that has no understanding of html, CSS or JavaScript the ability to create a cross-browser website. And that was an important point, because it could give us an advantage against other competitors, who are not always cross-browser compliant.
-
-
-
