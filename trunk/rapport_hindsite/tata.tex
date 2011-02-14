@@ -1,0 +1,48 @@
+Below you can see the trouble that an API like jQuery can save you from.
+\lstset{language=Javascript}
+\begin{lstlisting}[label=ajax,caption=Ajax without jQuery]
+function submitForm()
+{ 
+    var xhr; 
+    try {  xhr = new ActiveXObject('Msxml2.XMLHTTP');   }
+    catch (e) 
+    {
+        try {   xhr = new ActiveXObject('Microsoft.XMLHTTP');    }
+        catch (e2) 
+        {
+          try {  xhr = new XMLHttpRequest();     }
+          catch (e3) {  xhr = false;   }
+        }
+     }
+  
+    xhr.onreadystatechange  = function()
+    { 
+         if(xhr.readyState  == 4)
+         {
+              if(xhr.status  == 200) 
+                 alert("Received:"  + xhr.responseText); 
+              else 
+                 alert("Error code " + xhr.status);
+         }
+    }; 
+
+   xhr.open(GET, "data.txt",  true); 
+   xhr.send(null); 
+} 
+\end{lstlisting}
+\lstset{language=Javascript}
+\begin{lstlisting}[label=ajax-jQuery,caption=Ajax with jQuery]
+function submitForm()
+{ 
+    jQuery.ajax({
+			type: "GET",
+			url: "data.txt",
+			success: function(data){
+				alert("Received:" + data)
+			},
+			error: function(xhr, txtStatus, error ){
+				alert("Error code " + xhr.status)	
+			}    
+    });
+} 
+\end{lstlisting}
