@@ -17,9 +17,6 @@
 \usepackage{url} % Pour avoir de belles url
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 
-\usepackage{wrapfig}
-\usepackage{subfig}
-
 \usepackage{color}
 \usepackage{xcolor}
 
@@ -107,7 +104,7 @@
 %%%% debut macro pour enlever le nom chapitre %%%%
 \makeatletter
 \def\@makechapterhead#1{%
-  \vspace*{10\p@}%
+  \vspace*{-30\p@}%
   {\parindent \z@ \raggedright \normalfont
     \interlinepenalty\@M
     \ifnum \c@secnumdepth >\m@ne
@@ -118,7 +115,7 @@
   }}
 
 \def\@makeschapterhead#1{%
-  \vspace*{10\p@}%
+  \vspace*{-30\p@}%
   {\parindent \z@ \raggedright
     \normalfont
     \interlinepenalty\@M
@@ -132,30 +129,10 @@
 
 %Couverture 
 % Le plus simple est d'importer un pdf s'il y a une couverture type a respecter
-%\includepdf[pages=1,noautoscale=false]{premiere_page.pdf} 
-\title
-{
-	\normalsize{Graduation Project}\\Promo 2010\\
-	\vspace{15mm}
-	\Huge{Junior Web Developer}
-}
-\author{Thomas LOUIS\\
-	\vspace{45mm}
-}
-
-\date{	
-	\normalsize{Lieu du stage\\
-	Adresse du stage\\
-	Ville du stage\\ 
-	\vspace{5mm}	
-	Directeur de recherche : M. DUPONT \\
-	Rapporteur universitaire : Mme DUPUIS
-	}
-}
 
 \begin{document}
 
-\maketitle
+\includepdf[pages=1,noautoscale=false]{couvertureRapport.pdf} 
 
 \input{Remerciements}
 %\clearpage
@@ -168,7 +145,7 @@
 % Pour avoir un interligne de 1,5
 \begin{onehalfspace}
 
-\input{Intro}
+\input{IntroTom}
 
 %samples chapter
 %\input{Partie1}
@@ -208,7 +185,7 @@
 %exemples d'annexes
 \appendix
 \input{Appendix_A}
-%\input{Appendix_B}
+\input{Appendix_B}
 %\input{Appendix_C}
 
 % 4eme de couverture
