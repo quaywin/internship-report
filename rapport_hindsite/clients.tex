@@ -25,7 +25,7 @@ I used JQuery technology to show a popup over the current opened page. It allows
 A2LA as "The American Association for Laboratory Accreditation" proposes registration for their different courses. 
 I had to create a new Form payment for the annual forum of A2LA. This page has to take some values from a form hosted in another domain. 
 
-This page also have to be scure and be able to send mails either to a2la executives and payment confirmation to the client.
+This page also have to be secure and be able to send mails either to a2la executives and payment confirmation to the client.
 The secured payment is provided by Authorize.net through its API. I also had to implement additional securities into my pages so that nobody can do illicit actions.
 
 I implemented a section in the already existing administration area to provide summary of the operations that have been done with the forms.
@@ -60,7 +60,24 @@ The information is accessible in an administration panel.
 \end{figure}
 
 \section{Pylon}
-Work in progress
-admin area
-challenge : old framework writtem in PHP4
-some standards were not respected.
+
+Pylon is a manufacturer and distributor of wiper blades. The web site of this company is pretty old and the code behind have got layer over layer of technology. Originally written in PHP 4, it still uses deprecated functions and libraries to work. 
+I had to dig deeply into the code to understand how to simply add and modify a page, how to customize the administration panel and how to manipulate data in order not to add more complexity.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.55\textwidth]{img/pylon_v.png}
+\caption{Pylon shop finder}
+\label{figure:pyl_shop}
+\end{figure}
+ 
+The main tasks I was asked on this project was to upgrade the form to search where to buy a product by allowing to filter by product (see figure \ref{figure:pyl_shop} p. \pageref{figure:pyl_shop}). Another was to enhance existing form that allowed to know what wiper blade correspond to your car by adding geographic information and a link to the previous form (see figure \ref{figure:pyl_vehicle} p. \pageref{figure:pyl_vehicle}).
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.55\textwidth]{img/pylon_vehicule.png}
+\caption{Pylon vehicle part finder}
+\label{figure:pyl_vehicle}
+\end{figure}
+
+By the administration panel i had to develop a data import feature using CSV files and populating the database. I also added an export feature to load the data from the database and create a CSV file.
